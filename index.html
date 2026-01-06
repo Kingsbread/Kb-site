@@ -15,51 +15,60 @@
     </style>
 </head>
 <body>
-    <div class="game-container">
-        <!-- Верхняя часть: логотип -->
-        <div class="header">
+    <div class="game-screen">
+        <!-- Логотип -->
+        <div class="logo-container">
             <img src="kb_logo.png" alt="Kingsbread" class="logo">
         </div>
-        
+
         <!-- Текст игры -->
-        <div class="game-text-container">
-            <div class="game-text-scroll">
-                <p>Kingsbread - это пиксельная 2D RPG игра. События обворачиваются в средневековой пустынной стране фентези-мира</p>
-                <br>
-                <p>Главный герой Сил, что живёт в бедности с дедом, начинает понимать: чтобы не умереть с голоду от сильной засухи, он должен пойти на отчаянный шаг - украсть деньги у своего босса и отправиться в соседнее королевство за пищей</p>
-                <br>
-                <p>В пути Сил встречает разнообразных персонажей. Он старается помочь каждому из них, но даже не подозревает, что за ним по пятам уже идёт наёмник, подосланный разгневанным боссом. Тот расставляет ловушки и подкупает людей, чтобы вернуть деньги и возможно даже убить мальчика!</p>
-                <br>
-                <p>Игра очень сильно завязана на здешней религии. Также из-за фентезийности данного мира, в игре присутствуют монстры, магия и т.д.</p>
-                <br>
-                <p>А также Сил имеет свой характер, из-за чего-...<br>...<br>Извини, нельзя.</p>
-                <br>
-                <p>Следите за разработкой и не пропустите релиз демо-версии, к релизу которой мы с каждым днём всё ближе и ближе, по ссылкам ниже!</p>
+        <div class="text-container">
+            <div class="text-content">
+                <p class="game-text">
+                    Kingsbread - это пиксельная 2D RPG игра. События обворачиваются в средневековой пустынной стране фентези-мира
+                    <br><br>
+                    Главный герой Сил, что живёт в бедности с дедом, начинает понимать: чтобы не умереть с голоду от сильной засухи, он должен пойти на отчаянный шаг - украсть деньги у своего босса и отправиться в соседнее королевство за пищей
+                    <br><br>
+                    В пути Сил встречает разнообразных персонажей. Он старается помочь каждому из них, но даже не подозревает, что за ним по пятам уже идёт наёмник, подосланный разгневанным боссом. Тот расставляет ловушки и подкупает людей, чтобы вернуть деньги и возможно даже убить мальчика!
+                    <br><br>
+                    Игра очень сильно завязана на здешней религии. Также из-за фентезийности данного мира, в игре присутствуют монстры, магия и т.д.
+                    <br><br>
+                    А также Сил имеет свой характер, из-за чего-...
+                    ...
+                    Извини, нельзя.
+                    <br><br>
+                    Следите за разработкой и не пропустите релиз демо-версии, к релизу которой мы с каждым днём всё ближе и ближе, по ссылкам ниже!
+                </p>
             </div>
         </div>
-        
+
+        <!-- Пропасть -->
+        <div class="void"></div>
+
         <!-- Гифка -->
-        <div class="gif-section">
+        <div class="gif-container">
             <img src="img/heart_and_eye.gif" alt="Сердце и глаз" class="heart-gif">
         </div>
-        
+
         <!-- Кнопки -->
-        <div class="buttons-section">
-            <a href="https://t.me/kingsbread_official" target="_blank" class="social-button telegram-btn">
-                <img src="tg_idle.png" alt="Телеграм" class="btn-idle">
-                <img src="tg_sel.png" alt="Телеграм" class="btn-hover">
+        <div class="buttons-container">
+            <!-- Телеграм кнопка -->
+            <a href="https://t.me/kingsbread_official" target="_blank" class="pixel-button tg-button">
+                <img src="tg_idle.png" alt="Телеграм" class="button-default">
+                <img src="tg_sel.png" alt="Телеграм" class="button-hover">
                 <span class="tooltip">Телеграм канал Kingsbread</span>
             </a>
-            
-            <a href="https://discord.gg/a5KjEgGjqV" target="_blank" class="social-button discord-btn">
-                <img src="ds_idle.png" alt="Дискорд" class="btn-idle">
-                <img src="ds_sel.png" alt="Дискорд" class="btn-hover">
+
+            <!-- Дискорд кнопка -->
+            <a href="https://discord.gg/a5KjEgGjqV" target="_blank" class="pixel-button ds-button">
+                <img src="ds_idle.png" alt="Дискорд" class="button-default">
+                <img src="ds_sel.png" alt="Дискорд" class="button-hover">
                 <span class="tooltip">Дискорд сервер Kingsbread</span>
             </a>
         </div>
-        
-        <!-- Футер -->
-        <div class="footer">
+
+        <!-- Копирайт -->
+        <div class="copyright">
             <p>© 2026 Kingsbread by May</p>
         </div>
     </div>
