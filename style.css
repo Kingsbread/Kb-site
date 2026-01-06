@@ -16,18 +16,21 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 0;
+    align-items: flex-start; /* Изменил на flex-start для прокрутки */
+    padding: 20px 0; /* Добавил вертикальный padding */
+    height: auto;
+    overflow-y: auto; /* Включаем вертикальную прокрутку */
 }
 
 /* Экран игры */
 .game-screen {
     width: 256px;
-    height: auto;
+    height: auto; /* Автоматическая высота */
     transform: scale(3);
-    transform-origin: center;
+    transform-origin: top center; /* Изменил на top center */
     position: relative;
-    min-height: 144px;
+    margin-top: 20px; /* Отступ сверху */
+    margin-bottom: 60px; /* Отступ снизу для прокрутки */
 }
 
 /* Шапка с логотипом */
@@ -155,6 +158,7 @@ body {
     background-color: #090a14;
     padding: 10px 6px;
     border-top: 2px solid #151d28;
+    margin-bottom: 10px; /* Отступ снизу */
 }
 
 .screenshots-title {
@@ -168,7 +172,7 @@ body {
 .screenshots-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4px;
+    gap: 6px; /* Увеличил расстояние между скриншотами */
     justify-items: center;
 }
 
@@ -188,22 +192,23 @@ body {
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-/* Большой пустой пробел */
+/* Большой пустой пробел - УВЕЛИЧЕН */
 .big-void {
     width: 100%;
-    height: 80px;
+    height: 120px; /* Увеличил с 80px до 120px */
     background-color: #090a14;
 }
 
-/* Гифка */
+/* Гифка - ОПУЩЕНА НИЖЕ */
 .gif-container {
     width: 100%;
-    height: 100px;
+    height: 160px; /* Увеличил высоту контейнера */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #090a14;
     border-top: 2px solid #151d28;
+    margin-top: 20px; /* Добавил отступ сверху */
 }
 
 .heart-gif {
@@ -212,17 +217,20 @@ body {
     object-fit: contain;
     image-rendering: pixelated;
     filter: drop-shadow(0 0 5px rgba(255, 51, 102, 0.7));
+    margin-top: 20px; /* Опустил гифку ниже */
 }
 
-/* Футер */
+/* Футер - ОПУЩЕН НИЖЕ СЕРДЦА */
 .footer-container {
     width: 100%;
-    height: 16px;
+    height: 30px; /* Увеличил высоту */
     background-color: #090a14;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top: 2px solid #151d28;
+    margin-top: 40px; /* Большой отступ сверху, чтобы было после сердца */
+    padding-top: 10px;
 }
 
 .footer-text {
@@ -245,16 +253,38 @@ body {
     background: #394a50;
 }
 
+/* Скроллбар для всего сайта */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #0c1117;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #394a50;
+    border-radius: 4px;
+}
+
 /* Адаптивность */
 @media (max-width: 900px) {
     .game-screen {
         transform: scale(2.5);
+    }
+    
+    body {
+        padding: 15px 0;
     }
 }
 
 @media (max-width: 600px) {
     .game-screen {
         transform: scale(2);
+    }
+    
+    body {
+        padding: 10px 0;
     }
     
     .heart-gif {
@@ -274,11 +304,24 @@ body {
         width: 100px;
         height: 56px;
     }
+    
+    .big-void {
+        height: 100px;
+    }
+    
+    .footer-container {
+        margin-top: 30px;
+        height: 25px;
+    }
 }
 
 @media (max-width: 400px) {
     .game-screen {
         transform: scale(1.5);
+    }
+    
+    body {
+        padding: 5px 0;
     }
     
     .heart-gif {
@@ -302,11 +345,24 @@ body {
         width: 140px;
         height: 79px;
     }
+    
+    .big-void {
+        height: 80px;
+    }
+    
+    .footer-container {
+        margin-top: 20px;
+        height: 20px;
+    }
 }
 
 /* Для очень больших экранов */
 @media (min-width: 1200px) {
     .game-screen {
         transform: scale(4);
+    }
+    
+    body {
+        padding: 30px 0;
     }
 }
