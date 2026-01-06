@@ -20,6 +20,7 @@ body {
     padding: 20px 0;
     height: auto;
     overflow-y: auto;
+    width: 100%;
 }
 
 /* Экран игры */
@@ -33,10 +34,10 @@ body {
     margin-bottom: 60px;
 }
 
-/* Шапка с логотипом - УВЕЛИЧЕН В 2 РАЗА (40px высота) */
+/* Шапка с логотипом */
 .header-container {
     width: 100%;
-    height: 40px; /* Было 20px - увеличение в 2 раза! */
+    height: 40px;
     background-color: #394a50;
     display: flex;
     justify-content: center;
@@ -45,15 +46,15 @@ body {
 }
 
 .logo-image {
-    height: 32px; /* Увеличен в 2 раза */
+    height: 32px;
     width: auto;
     display: block;
 }
 
-/* Контейнер текста - БЕЗ ПРОКРУТКИ, ВЕСЬ ТЕКСТ ВИДЕН */
+/* Контейнер текста */
 .text-container {
     width: 100%;
-    min-height: 100px; /* Фиксированная высота для всего текста */
+    min-height: 100px;
     background-color: #151d28;
     padding: 8px 6px;
     display: block;
@@ -65,13 +66,13 @@ body {
 }
 
 .game-text {
-    font-size: 4px; /* Старый размер текста */
+    font-size: 4px;
     line-height: 6px;
     color: #e0e0e0;
     text-shadow: 1px 1px 0 #000;
     letter-spacing: 0.3px;
     margin: 0;
-    text-align: left; /* Текст слева как было */
+    text-align: left;
 }
 
 /* Кнопки ПОД ТЕКСТОМ */
@@ -194,7 +195,7 @@ body {
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-/* Модальное окно для полноэкранного просмотра - ИСПРАВЛЕНО */
+/* Модальное окно для полноэкранного просмотра */
 .modal-overlay {
     position: fixed;
     top: 0;
@@ -266,7 +267,7 @@ body {
     background-color: #090a14;
 }
 
-/* Гифка - БЕЗ КРАСНОГО ЭФФЕКТА */
+/* Гифка */
 .gif-container {
     width: 100%;
     height: 160px;
@@ -283,7 +284,6 @@ body {
     height: 144px;
     object-fit: contain;
     image-rendering: pixelated;
-    /* Убрал filter с красным эффектом */
 }
 
 /* Футер */
@@ -320,14 +320,19 @@ body::-webkit-scrollbar-thumb {
     border-radius: 4px;
 }
 
-/* Адаптивность */
+/* ========== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ ========== */
+
+/* Для планшетов (900px и меньше) */
 @media (max-width: 900px) {
     .game-screen {
         transform: scale(2.5);
+        margin-left: auto; /* Центрирование */
+        margin-right: auto; /* Центрирование */
     }
     
     body {
-        padding: 15px 0;
+        padding: 15px 10px; /* Добавил горизонтальные отступы */
+        justify-content: center;
     }
     
     .header-container {
@@ -341,15 +346,28 @@ body::-webkit-scrollbar-thumb {
     .text-container {
         min-height: 120px;
     }
+    
+    .modal-close {
+        top: -45px;
+        right: 0;
+    }
 }
 
+/* Для средних телефонов (600px и меньше) - ИСПРАВЛЕНИЕ СМЕЩЕНИЯ */
 @media (max-width: 600px) {
     .game-screen {
         transform: scale(2);
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        position: relative;
     }
     
     body {
-        padding: 10px 0;
+        padding: 10px 8px; /* Больше отступов по бокам */
+        justify-content: center;
+        overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
     }
     
     .heart-gif {
@@ -386,15 +404,30 @@ body::-webkit-scrollbar-thumb {
         height: 35px;
         font-size: 20px;
     }
+    
+    /* Центрирование скриншотов на телефонах */
+    .screenshots-grid {
+        justify-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 220px; /* Ограничиваем ширину сетки */
+    }
 }
 
+/* Для маленьких телефонов (400px и меньше) */
 @media (max-width: 400px) {
     .game-screen {
         transform: scale(1.5);
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
     }
     
     body {
-        padding: 5px 0;
+        padding: 5px 5px; /* Отступы по бокам */
+        justify-content: center;
+        overflow-x: hidden;
     }
     
     .heart-gif {
@@ -412,6 +445,9 @@ body::-webkit-scrollbar-thumb {
     
     .screenshots-grid {
         grid-template-columns: 1fr;
+        max-width: 150px; /* Уже для одного столбца */
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .screenshot {
@@ -427,16 +463,48 @@ body::-webkit-scrollbar-thumb {
         margin-top: 20px;
         height: 20px;
     }
+    
+    .modal-close {
+        top: -35px;
+        width: 30px;
+        height: 30px;
+        font-size: 18px;
+    }
 }
 
-/* Для очень больших экранов */
+/* Для очень маленьких телефонов (320px и меньше) */
+@media (max-width: 320px) {
+    .game-screen {
+        transform: scale(1.3);
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    body {
+        padding: 5px 3px;
+    }
+    
+    .screenshot {
+        width: 120px;
+        height: 67px;
+    }
+    
+    .screenshots-grid {
+        max-width: 130px;
+    }
+}
+
+/* Для очень больших экранов (ПК) - ничего не меняем */
 @media (min-width: 1200px) {
     .game-screen {
         transform: scale(4);
+        margin-left: auto;
+        margin-right: auto;
     }
     
     body {
         padding: 30px 0;
+        justify-content: center;
     }
     
     .header-container {
@@ -446,4 +514,11 @@ body::-webkit-scrollbar-thumb {
     .logo-image {
         height: 38px;
     }
+}
+
+/* Дополнительный фикс для центрирования на всех устройствах */
+.game-screen {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
