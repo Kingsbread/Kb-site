@@ -1,11 +1,11 @@
-/* Сброс и базовые стили */
+/* Сброс и базовые стили - УБРАЛ PIXELATED */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
+    /* Убрал: image-rendering: pixelated; */
+    /* Убрал: image-rendering: -moz-crisp-edges; */
+    /* Убрал: image-rendering: crisp-edges; */
 }
 
 /* Базовые настройки для всех устройств */
@@ -16,21 +16,24 @@ body {
     min-height: 100vh;
     width: 100%;
     overflow-x: hidden;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-/* Контейнер сайта - ПРОСТОЙ ПОДХОД */
+/* Контейнер сайта */
 .game-screen {
-    width: 768px; /* 256px * 3 = 768px (базовый размер * масштаб) */
-    max-width: 95vw; /* Ограничиваем ширину на мобильных */
+    width: 768px;
+    max-width: 95vw;
     margin: 0 auto;
     padding: 20px 0;
     background-color: transparent;
 }
 
-/* Шапка с логотипом */
+/* Шапка с логотипом - ГЛАДКИЙ ЛОГОТИП */
 .header-container {
     width: 100%;
-    height: 120px; /* 40px * 3 */
+    height: 120px;
     background-color: #394a50;
     display: flex;
     justify-content: center;
@@ -39,17 +42,20 @@ body {
 }
 
 .logo-image {
-    height: 96px; /* 32px * 3 */
+    height: 96px;
     width: auto;
     display: block;
+    /* Гладкое масштабирование */
+    image-rendering: auto;
+    -ms-interpolation-mode: bicubic;
 }
 
-/* Контейнер текста - УВЕЛИЧИЛИ МЕЖСТРОЧНЫЙ ИНТЕРВАЛ */
+/* Контейнер текста */
 .text-container {
     width: 100%;
-    min-height: 300px; /* 100px * 3 */
+    min-height: 300px;
     background-color: #151d28;
-    padding: 24px 18px; /* 8px * 3, 6px * 3 */
+    padding: 24px 18px;
     margin-bottom: 0;
 }
 
@@ -59,45 +65,51 @@ body {
 }
 
 .game-text {
-    font-size: 12px; /* 4px * 3 */
-    line-height: 20px; /* Увеличили межстрочный интервал! Было 18px (6px * 3) */
+    font-size: 12px;
+    line-height: 20px;
     color: #e0e0e0;
     text-shadow: 1px 1px 0 #000;
-    letter-spacing: 0.9px; /* 0.3px * 3 */
+    letter-spacing: 0.9px;
     margin: 0;
     text-align: center;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* Кнопки ПОД ТЕКСТОМ */
 .buttons-container {
     width: 100%;
-    height: 120px; /* 40px * 3 */
+    height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 120px; /* 40px * 3 */
+    gap: 120px;
     background-color: #151d28;
-    padding: 18px 0; /* 6px * 3 */
-    border-top: 6px solid #0c1117; /* 2px * 3 */
+    padding: 18px 0;
+    border-top: 6px solid #0c1117;
 }
 
-/* Кнопки */
+/* Кнопки - ГЛАДКИЕ ИКОНКИ */
 .pixel-button {
     position: relative;
     display: inline-block;
     text-decoration: none;
-    width: 96px; /* 32px * 3 */
-    height: 96px; /* 32px * 3 */
+    width: 96px;
+    height: 96px;
+    transition: transform 0.3s ease;
 }
 
 .pixel-button img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 96px; /* 32px * 3 */
-    height: 96px; /* 32px * 3 */
-    transition: opacity 0.1s;
-    image-rendering: pixelated;
+    width: 96px;
+    height: 96px;
+    transition: opacity 0.2s ease;
+    /* Гладкое изображение */
+    image-rendering: auto;
+    -ms-interpolation-mode: bicubic;
+    filter: brightness(1);
 }
 
 .button-default {
@@ -117,8 +129,8 @@ body {
 }
 
 .pixel-button:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
 }
 
 /* Подсказки */
@@ -129,16 +141,19 @@ body {
     transform: translateX(-50%);
     background-color: #151d28;
     color: #ffffff;
-    padding: 6px 18px; /* 2px * 3, 6px * 3 */
-    font-size: 12px; /* 4px * 3 */
-    border-radius: 6px; /* 2px * 3 */
+    padding: 6px 18px;
+    font-size: 12px;
+    border-radius: 6px;
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.2s;
-    border: 3px solid #394a50; /* 1px * 3 */
+    transition: opacity 0.3s ease;
+    border: 3px solid #394a50;
     pointer-events: none;
-    margin-bottom: 12px; /* 4px * 3 */
+    margin-bottom: 12px;
+    z-index: 10;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
 }
 
 .pixel-button:hover .tooltip {
@@ -146,48 +161,54 @@ body {
     visibility: visible;
 }
 
-/* Скриншоты игры */
+/* Скриншоты игры - ГЛАДКИЕ СКРИНШОТЫ */
 .screenshots-container {
     width: 100%;
     background-color: #090a14;
-    padding: 30px 18px; /* 10px * 3, 6px * 3 */
-    border-top: 6px solid #151d28; /* 2px * 3 */
-    margin-bottom: 30px; /* 10px * 3 */
+    padding: 30px 18px;
+    border-top: 6px solid #151d28;
+    margin-bottom: 30px;
 }
 
 .screenshots-title {
-    font-size: 18px; /* 6px * 3 */
+    font-size: 18px;
     color: #ffffff;
     text-align: center;
-    margin-bottom: 24px; /* 8px * 3 */
+    margin-bottom: 24px;
     text-shadow: 2px 2px 0 #000;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
 }
 
 .screenshots-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 18px; /* 6px * 3 */
+    gap: 18px;
     justify-items: center;
     margin: 0 auto;
     width: 100%;
 }
 
 .screenshot {
-    width: 360px; /* 120px * 3 */
-    height: 201px; /* 67px * 3 */
+    width: 360px;
+    height: 201px;
     max-width: 100%;
     object-fit: cover;
-    border: 6px solid #394a50; /* 2px * 3 */
-    border-radius: 6px; /* 2px * 3 */
-    image-rendering: pixelated;
-    transition: transform 0.2s, border-color 0.2s;
+    border: 6px solid #394a50;
+    border-radius: 8px; /* Увеличил скругление */
+    /* Гладкое изображение */
+    image-rendering: auto;
+    -ms-interpolation-mode: bicubic;
+    transition: all 0.3s ease;
     cursor: pointer;
+    filter: brightness(0.95);
 }
 
 .screenshot:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     border-color: #4a5a60;
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+    filter: brightness(1.05);
 }
 
 /* Модальное окно для полноэкранного просмотра */
@@ -197,7 +218,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.95);
+    background-color: rgba(0, 0, 0, 0.97);
     z-index: 1000;
     display: flex;
     justify-content: center;
@@ -226,8 +247,11 @@ body {
     max-height: 85vh;
     object-fit: contain;
     border: 3px solid #394a50;
-    border-radius: 4px;
+    border-radius: 8px;
     background-color: #090a14;
+    /* Гладкое изображение в модалке */
+    image-rendering: auto;
+    -ms-interpolation-mode: bicubic;
 }
 
 .modal-close {
@@ -247,7 +271,7 @@ body {
     align-items: center;
     justify-content: center;
     font-family: Arial, sans-serif;
-    transition: background 0.2s;
+    transition: all 0.2s ease;
 }
 
 .modal-close:hover {
@@ -258,62 +282,74 @@ body {
 /* Большой пустой пробел */
 .big-void {
     width: 100%;
-    height: 3600px; /* 1200px * 3 */
+    height: 3600px;
     background-color: #090a14;
 }
 
-/* Гифка */
+/* Гифка - ГЛАДКАЯ АНИМАЦИЯ */
 .gif-container {
     width: 100%;
-    height: 600px; /* 200px * 3 */
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #090a14;
-    border-top: 6px solid #151d28; /* 2px * 3 */
+    border-top: 6px solid #151d28;
     margin-top: 0;
 }
 
 .heart-gif {
-    width: 288px; /* 96px * 3 */
-    height: 432px; /* 144px * 3 */
+    width: 288px;
+    height: 432px;
     max-width: 90%;
     object-fit: contain;
-    image-rendering: pixelated;
+    /* Гладкая анимация */
+    image-rendering: auto;
+    -ms-interpolation-mode: bicubic;
+    filter: brightness(1);
+    transition: filter 0.3s ease;
 }
 
 /* Футер */
 .footer-container {
     width: 100%;
-    height: 90px; /* 30px * 3 */
+    height: 90px;
     background-color: #090a14;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-top: 6px solid #151d28; /* 2px * 3 */
-    margin-top: 60px; /* 20px * 3 */
-    padding-top: 30px; /* 10px * 3 */
+    border-top: 6px solid #151d28;
+    margin-top: 60px;
+    padding-top: 30px;
 }
 
 .footer-text {
-    font-size: 9px; /* 3px * 3 */
+    font-size: 9px;
     color: #7a7a8c;
     text-shadow: 1px 1px 0 #000;
     margin: 0;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
 }
 
 /* Скроллбар для всего сайта */
 body::-webkit-scrollbar {
-    width: 8px;
+    width: 10px;
 }
 
 body::-webkit-scrollbar-track {
     background: #0c1117;
+    border-radius: 5px;
 }
 
 body::-webkit-scrollbar-thumb {
     background: #394a50;
-    border-radius: 4px;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background: #4a5a60;
 }
 
 /* ========== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ ========== */
@@ -341,8 +377,8 @@ body::-webkit-scrollbar-thumb {
     }
     
     .game-text {
-        font-size: 14px; /* Немного больше для читаемости */
-        line-height: 22px; /* Ещё больше межстрочный интервал */
+        font-size: 14px;
+        line-height: 22px;
     }
     
     .buttons-container {
@@ -379,10 +415,12 @@ body::-webkit-scrollbar-thumb {
         width: 100%;
         height: 150px;
         max-width: 100%;
+        border-radius: 6px;
+        border-width: 4px;
     }
     
     .big-void {
-        height: 2400px; /* Уменьшили для мобильных */
+        height: 2400px;
     }
     
     .gif-container {
@@ -449,12 +487,13 @@ body::-webkit-scrollbar-thumb {
     }
     
     .screenshots-grid {
-        grid-template-columns: 1fr; /* 1 колонка на очень маленьких экранах */
+        grid-template-columns: 1fr;
         gap: 8px;
     }
     
     .screenshot {
-        height: 180px; /* Выше для одной колонки */
+        height: 180px;
+        border-radius: 6px;
     }
     
     .big-void {
@@ -495,5 +534,3 @@ body::-webkit-scrollbar-thumb {
         height: 180px;
     }
 }
-
-/* Для ПК (выше 768px) - уже настроено в базовых стилях */
