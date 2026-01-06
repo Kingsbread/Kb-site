@@ -2,9 +2,8 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <!-- Важно: добавляем правильный viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-    <title>Kingsbread - Пиксельная 2D RPG</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=0.1">
+    <title>Kingsbread</title> <!-- Изменил title -->
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/logo512.png" type="image/png">
     <style>
@@ -13,14 +12,6 @@
             src: url('Kingsbread Font.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
-        }
-        /* Дополнительный фикс для мобильных */
-        @media (max-width: 600px) and (orientation: portrait) {
-            html, body {
-                overflow-x: hidden;
-                position: relative;
-                width: 100%;
-            }
         }
     </style>
 </head>
