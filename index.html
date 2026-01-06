@@ -16,16 +16,24 @@
     </style>
 </head>
 <body>
+    <!-- Модальное окно для полноэкранного просмотра скриншотов -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">&times;</button>
+            <img src="" alt="" class="modal-image" id="modalImage">
+        </div>
+    </div>
+
     <div class="game-screen">
-        <!-- Шапка с логотипом -->
+        <!-- Шапка с логотипом - УВЕЛИЧЕН В 2 РАЗА -->
         <div class="header-container">
             <img src="img/kb_logo.png" alt="Kingsbread" class="logo-image">
         </div>
 
-        <!-- Текст игры -->
+        <!-- Текст игры - БЕЗ ПРОКРУТКИ, ПО ЦЕНТРУ -->
         <div class="text-container">
-            <div class="text-content">
-                <p class="game-text">
+            <div class="text-content-centered">
+                <p class="game-text-centered">
                     Kingsbread - это пиксельная 2D RPG игра. События обворачиваются в средневековой пустынной стране фентези-мира
                     <br><br>
                     Главный герой Сил, что живёт в бедности с дедом, начинает понимать: чтобы не умереть с голоду от сильной засухи, он должен пойти на отчаянный шаг - украсть деньги у своего босса и отправиться в соседнее королевство за пищей
@@ -60,20 +68,20 @@
             </a>
         </div>
 
-        <!-- Скриншоты игры (10 штук В ПРАВИЛЬНОМ ПОРЯДКЕ) -->
+        <!-- Скриншоты игры -->
         <div class="screenshots-container">
             <h2 class="screenshots-title">Скриншоты игры</h2>
             <div class="screenshots-grid">
-                <img src="screens/main_str.png" alt="Главная улица" class="screenshot">
-                <img src="screens/fight_cool_pig.png" alt="Бой с крутой свиньёй" class="screenshot">
-                <img src="screens/fight_cool_pig_enemy.png" alt="Враг - крутая свинья" class="screenshot">
-                <img src="screens/pre-story.png" alt="Предыстория" class="screenshot">
-                <img src="screens/silly_kids.png" alt="Смешные дети" class="screenshot">
-                <img src="screens/menu.png" alt="Меню игры" class="screenshot">
-                <img src="screens/Markiz.png" alt="Маркиз" class="screenshot">
-                <img src="screens/Grandpa_dialogue.png" alt="Диалог с дедом" class="screenshot">
-                <img src="screens/poor_Emfi.png" alt="Бедная Эмфи" class="screenshot">
-                <img src="screens/Savepoint.png" alt="Точка сохранения" class="screenshot">
+                <img src="screens/main_str.png" alt="Главная улица" class="screenshot" data-full="screens/main_str.png">
+                <img src="screens/fight_cool_pig.png" alt="Бой с крутой свиньёй" class="screenshot" data-full="screens/fight_cool_pig.png">
+                <img src="screens/fight_cool_pig_enemy.png" alt="Враг - крутая свинья" class="screenshot" data-full="screens/fight_cool_pig_enemy.png">
+                <img src="screens/pre-story.png" alt="Предыстория" class="screenshot" data-full="screens/pre-story.png">
+                <img src="screens/silly_kids.png" alt="Смешные дети" class="screenshot" data-full="screens/silly_kids.png">
+                <img src="screens/menu.png" alt="Меню игры" class="screenshot" data-full="screens/menu.png">
+                <img src="screens/Markiz.png" alt="Маркиз" class="screenshot" data-full="screens/Markiz.png">
+                <img src="screens/Grandpa_dialogue.png" alt="Диалог с дедом" class="screenshot" data-full="screens/Grandpa_dialogue.png">
+                <img src="screens/poor_Emfi.png" alt="Бедная Эмфи" class="screenshot" data-full="screens/poor_Emfi.png">
+                <img src="screens/Savepoint.png" alt="Точка сохранения" class="screenshot" data-full="screens/Savepoint.png">
             </div>
         </div>
 
@@ -90,5 +98,48 @@
             <p class="footer-text">© 2026 Kingsbread by May</p>
         </div>
     </div>
+
+    <script>
+        // Модальное окно для скриншотов
+        document.addEventListener('DOMContentLoaded', function() {
+            const modalOverlay = document.getElementById('modalOverlay');
+            const modalImage = document.getElementById('modalImage');
+            const modalClose = document.getElementById('modalClose');
+            const screenshots = document.querySelectorAll('.screenshot');
+            
+            // Открытие модального окна при клике на скриншот
+            screenshots.forEach(screenshot => {
+                screenshot.addEventListener('click', function() {
+                    const fullSizeImage = this.getAttribute('data-full');
+                    modalImage.src = fullSizeImage;
+                    modalImage.alt = this.alt;
+                    modalOverlay.style.display = 'flex';
+                    document.body.style.overflow = 'hidden'; // Блокируем прокрутку фона
+                });
+            });
+            
+            // Закрытие модального окна
+            modalClose.addEventListener('click', function() {
+                modalOverlay.style.display = 'none';
+                document.body.style.overflow = 'auto'; // Возвращаем прокрутку
+            });
+            
+            // Закрытие при клике вне изображения
+            modalOverlay.addEventListener('click', function(e) {
+                if (e.target === modalOverlay) {
+                    modalOverlay.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Закрытие по Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
+                    modalOverlay.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
