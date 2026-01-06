@@ -23,16 +23,17 @@ body {
 /* Экран игры */
 .game-screen {
     width: 256px;
-    height: 144px;
-    transform: scale(3); /* Масштаб 3x */
+    height: auto;
+    transform: scale(3);
     transform-origin: center;
     position: relative;
+    min-height: 144px;
 }
 
-/* Шапка с логотипом - УМЕНЬШЕН В 5 РАЗ */
+/* Шапка с логотипом */
 .header-container {
     width: 100%;
-    height: 20px; /* Было 32px - уменьшено */
+    height: 20px;
     background-color: #394a50;
     display: flex;
     justify-content: center;
@@ -41,7 +42,7 @@ body {
 }
 
 .logo-image {
-    height: 12px; /* Было 24px - уменьшено в 2 раза (в 5 раз от оригинального размера) */
+    height: 12px;
     width: auto;
     display: block;
 }
@@ -49,7 +50,7 @@ body {
 /* Контейнер текста */
 .text-container {
     width: 100%;
-    height: 80px; /* Увеличено на 10px из-за уменьшения шапки */
+    height: 80px;
     background-color: #151d28;
     overflow: hidden;
     position: relative;
@@ -69,41 +70,18 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* Пропасть */
-.void {
-    width: 100%;
-    height: 5px;
-    background-color: #090a14;
-}
-
-/* Контейнер гифки */
-.gif-container {
-    width: 100%;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #090a14;
-}
-
-.heart-gif {
-    width: 96px;
-    height: 144px;
-    object-fit: contain;
-    image-rendering: pixelated;
-}
-
-/* Контейнер кнопок */
+/* Кнопки ПОД ТЕКСТОМ */
 .buttons-container {
     width: 100%;
-    height: 32px;
+    height: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 32px;
-    background-color: #090a14;
+    gap: 40px;
+    background-color: #151d28;
     position: relative;
-    padding-top: 4px;
+    padding: 6px 0;
+    border-top: 2px solid #0c1117;
 }
 
 /* Кнопки */
@@ -141,6 +119,11 @@ body {
     opacity: 1;
 }
 
+.pixel-button:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
+}
+
 /* Подсказки */
 .tooltip {
     position: absolute;
@@ -166,6 +149,71 @@ body {
     visibility: visible;
 }
 
+/* Скриншоты игры */
+.screenshots-container {
+    width: 100%;
+    background-color: #090a14;
+    padding: 10px 6px;
+    border-top: 2px solid #151d28;
+}
+
+.screenshots-title {
+    font-size: 6px;
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 8px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4px;
+    justify-items: center;
+}
+
+.screenshot {
+    width: 120px;
+    height: 67px;
+    object-fit: cover;
+    border: 2px solid #394a50;
+    border-radius: 2px;
+    image-rendering: pixelated;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.screenshot:hover {
+    transform: scale(1.05);
+    border-color: #4a5a60;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Большой пустой пробел */
+.big-void {
+    width: 100%;
+    height: 80px;
+    background-color: #090a14;
+}
+
+/* Гифка */
+.gif-container {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #090a14;
+    border-top: 2px solid #151d28;
+}
+
+.heart-gif {
+    width: 96px;
+    height: 144px;
+    object-fit: contain;
+    image-rendering: pixelated;
+    filter: drop-shadow(0 0 5px rgba(255, 51, 102, 0.7));
+}
+
 /* Футер */
 .footer-container {
     width: 100%;
@@ -174,6 +222,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top: 2px solid #151d28;
 }
 
 .footer-text {
@@ -220,6 +269,11 @@ body {
     .logo-image {
         height: 10px;
     }
+    
+    .screenshot {
+        width: 100px;
+        height: 56px;
+    }
 }
 
 @media (max-width: 400px) {
@@ -238,6 +292,15 @@ body {
     
     .logo-image {
         height: 8px;
+    }
+    
+    .screenshots-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .screenshot {
+        width: 140px;
+        height: 79px;
     }
 }
 
