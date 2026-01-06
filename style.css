@@ -17,21 +17,21 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 0; /* Убрал padding */
 }
 
-/* Экран игры (визуально 256x144, но масштабируется) */
+/* Экран игры - БЕЗ РАМКИ И ТЕНИ */
 .game-screen {
     width: 256px;
     height: 144px;
-    transform: scale(3); /* Масштаб 3x для нормального отображения */
+    transform: scale(3); /* Масштаб 3x */
     transform-origin: center;
     position: relative;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    /* Убрано: border, box-shadow */
 }
 
-/* Контейнер логотипа - БЕЗ РАМКИ */
-.logo-container {
+/* Шапка с названием */
+.header-container {
     width: 100%;
     height: 32px;
     background-color: #394a50;
@@ -40,13 +40,15 @@ body {
     align-items: center;
 }
 
-.logo {
-    height: 24px;
-    width: auto;
-    display: block;
+.game-title {
+    font-size: 10px;
+    color: #ffffff;
+    text-shadow: 2px 2px 0 #000;
+    letter-spacing: 1px;
+    margin: 0;
 }
 
-/* Контейнер текста - БЕЗ РАМКИ */
+/* Контейнер текста */
 .text-container {
     width: 100%;
     height: 70px;
@@ -69,17 +71,17 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* Пропасть */
+/* Пропасть - УМЕНЬШЕНА, чтобы гифка была выше */
 .void {
     width: 100%;
-    height: 20px;
+    height: 10px; /* Было 20px */
     background-color: #090a14;
 }
 
-/* Контейнер гифки - ИСПРАВЛЕНО: увеличен и вытянут по высоте */
+/* Контейнер гифки - ПОДНЯТ ВЫШЕ */
 .gif-container {
     width: 100%;
-    height: 50px;
+    height: 60px; /* Увеличено с 50px */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,8 +89,8 @@ body {
 }
 
 .heart-gif {
-    width: 32px; /* Ширина меньше */
-    height: 48px; /* Высота больше - вытянутая */
+    width: 32px;
+    height: 48px;
     object-fit: contain;
 }
 
@@ -105,7 +107,7 @@ body {
     padding-top: 4px;
 }
 
-/* Кнопки - ИСПРАВЛЕНО: правильное отображение текстур */
+/* Кнопки */
 .pixel-button {
     position: relative;
     display: inline-block;
@@ -164,18 +166,21 @@ body {
     visibility: visible;
 }
 
-/* Копирайт */
-.copyright {
+/* Футер */
+.footer-container {
     width: 100%;
-    padding: 2px 0;
+    height: 16px;
     background-color: #090a14;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.copyright p {
+.footer-text {
     font-size: 3px;
     color: #7a7a8c;
     text-shadow: 1px 1px 0 #000;
+    margin: 0;
 }
 
 /* Скроллбар для текста */
@@ -194,19 +199,19 @@ body {
 /* Адаптивность */
 @media (max-width: 900px) {
     .game-screen {
-        transform: scale(2);
+        transform: scale(2.5);
     }
 }
 
 @media (max-width: 600px) {
     .game-screen {
-        transform: scale(1.5);
+        transform: scale(2);
     }
 }
 
 @media (max-width: 400px) {
     .game-screen {
-        transform: scale(1.2);
+        transform: scale(1.5);
     }
 }
 
