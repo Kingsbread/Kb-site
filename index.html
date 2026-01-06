@@ -18,26 +18,28 @@
     <div class="game-screen">
         <!-- Логотип -->
         <div class="logo-container">
-            <img src="kb_logo.png" alt="Kingsbread" class="logo">
+            <img src="kb_logo.png" alt="Kingsbread" class="logo" width="128" height="24">
         </div>
 
         <!-- Текст игры -->
         <div class="text-container">
-            <p class="game-text">
-                Kingsbread - это пиксельная 2D RPG игра. События обворачиваются в средневековой пустынной стране фентези-мира
-                <br><br>
-                Главный герой Сил, что живёт в бедности с дедом, начинает понимать: чтобы не умереть с голоду от сильной засухи, он должен пойти на отчаянный шаг - украсть деньги у своего босса и отправиться в соседнее королевство за пищей
-                <br><br>
-                В пути Сил встречает разнообразных персонажей. Он старается помочь каждому из них, но даже не подозревает, что за ним по пятам уже идёт наёмник, подосланный разгневанным боссом. Тот расставляет ловушки и подкупает людей, чтобы вернуть деньги и возможно даже убить мальчика!
-                <br><br>
-                Игра очень сильно завязана на здешней религии. Также из-за фентезийности данного мира, в игре присутствуют монстры, магия и т.д.
-                <br><br>
-                А также Сил имеет свой характер, из-за чего-...
-                ...
-                Извини, нельзя.
-                <br><br>
-                Следите за разработкой и не пропустите релиз демо-версии, к релизу которой мы с каждым днём всё ближе и ближе, по ссылкам ниже!
-            </p>
+            <div class="text-content">
+                <p class="game-text">
+                    Kingsbread - это пиксельная 2D RPG игра. События обворачиваются в средневековой пустынной стране фентези-мира
+                    <br><br>
+                    Главный герой Сил, что живёт в бедности с дедом, начинает понимать: чтобы не умереть с голоду от сильной засухи, он должен пойти на отчаянный шаг - украсть деньги у своего босса и отправиться в соседнее королевство за пищей
+                    <br><br>
+                    В пути Сил встречает разнообразных персонажей. Он старается помочь каждому из них, но даже не подозревает, что за ним по пятам уже идёт наёмник, подосланный разгневанным боссом. Тот расставляет ловушки и подкупает людей, чтобы вернуть деньги и возможно даже убить мальчика!
+                    <br><br>
+                    Игра очень сильно завязана на здешней религии. Также из-за фентезийности данного мира, в игре присутствуют монстры, магия и т.д.
+                    <br><br>
+                    А также Сил имеет свой характер, из-за чего-...
+                    ...
+                    Извини, нельзя.
+                    <br><br>
+                    Следите за разработкой и не пропустите релиз демо-версии, к релизу которой мы с каждым днём всё ближе и ближе, по ссылкам ниже!
+                </p>
+            </div>
         </div>
 
         <!-- Пропасть -->
@@ -45,22 +47,22 @@
 
         <!-- Гифка -->
         <div class="gif-container">
-            <img src="img/heart_and_eye.gif" alt="Сердце и глаз" class="heart-gif">
+            <img src="img/heart_and_eye.gif" alt="Сердце и глаз" class="heart-gif" width="64" height="64">
         </div>
 
         <!-- Кнопки -->
         <div class="buttons-container">
             <!-- Телеграм кнопка -->
             <a href="https://t.me/kingsbread_official" target="_blank" class="pixel-button tg-button">
-                <img src="tg_idle.png" alt="Телеграм" class="button-default">
-                <img src="tg_sel.png" alt="Телеграм" class="button-hover">
+                <img src="tg_idle.png" alt="Телеграм" class="button-default" width="32" height="32">
+                <img src="tg_sel.png" alt="Телеграм" class="button-hover" width="32" height="32">
                 <span class="tooltip">Телеграм канал Kingsbread</span>
             </a>
 
             <!-- Дискорд кнопка -->
             <a href="https://discord.gg/a5KjEgGjqV" target="_blank" class="pixel-button ds-button">
-                <img src="ds_idle.png" alt="Дискорд" class="button-default">
-                <img src="ds_sel.png" alt="Дискорд" class="button-hover">
+                <img src="ds_idle.png" alt="Дискорд" class="button-default" width="32" height="32">
+                <img src="ds_sel.png" alt="Дискорд" class="button-hover" width="32" height="32">
                 <span class="tooltip">Дискорд сервер Kingsbread</span>
             </a>
         </div>
@@ -70,38 +72,5 @@
             <p>© 2026 Kingsbread by May</p>
         </div>
     </div>
-
-    <script>
-        // Функция для масштабирования всех пиксельных изображений
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                // Сохраняем оригинальные размеры
-                img.dataset.originalWidth = img.naturalWidth;
-                img.dataset.originalHeight = img.naturalHeight;
-                
-                // Масштабируем кратно оригинальным размерам
-                const scale = Math.floor(window.innerWidth / 256);
-                const baseScale = Math.max(1, Math.floor(scale / 2));
-                
-                img.style.width = `${img.naturalWidth * baseScale}px`;
-                img.style.height = `${img.naturalHeight * baseScale}px`;
-                img.style.imageRendering = 'pixelated';
-            });
-
-            // Настройка масштаба всего экрана игры
-            const gameScreen = document.querySelector('.game-screen');
-            function updateScale() {
-                const scale = Math.min(
-                    window.innerWidth / 256,
-                    window.innerHeight / 144
-                );
-                gameScreen.style.transform = `scale(${scale})`;
-            }
-            
-            updateScale();
-            window.addEventListener('resize', updateScale);
-        });
-    </script>
 </body>
 </html>
