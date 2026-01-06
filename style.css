@@ -1,14 +1,10 @@
-/* Сброс и базовые стили - УБРАЛ PIXELATED */
+/* Сброс и базовые стили */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    /* Убрал: image-rendering: pixelated; */
-    /* Убрал: image-rendering: -moz-crisp-edges; */
-    /* Убрал: image-rendering: crisp-edges; */
 }
 
-/* Базовые настройки для всех устройств */
 body {
     background-color: #090a14;
     font-family: 'Kingsbread', monospace;
@@ -30,7 +26,7 @@ body {
     background-color: transparent;
 }
 
-/* Шапка с логотипом - ГЛАДКИЙ ЛОГОТИП */
+/* Шапка с логотипом */
 .header-container {
     width: 100%;
     height: 120px;
@@ -45,7 +41,6 @@ body {
     height: 96px;
     width: auto;
     display: block;
-    /* Гладкое масштабирование */
     image-rendering: auto;
     -ms-interpolation-mode: bicubic;
 }
@@ -76,20 +71,20 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Кнопки ПОД ТЕКСТОМ */
+/* Кнопки ПОД ТЕКСТОМ (3 КНОПКИ) */
 .buttons-container {
     width: 100%;
     height: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 120px;
+    gap: 80px;
     background-color: #151d28;
     padding: 18px 0;
     border-top: 6px solid #0c1117;
 }
 
-/* Кнопки - ГЛАДКИЕ ИКОНКИ */
+/* Кнопки */
 .pixel-button {
     position: relative;
     display: inline-block;
@@ -106,7 +101,6 @@ body {
     width: 96px;
     height: 96px;
     transition: opacity 0.2s ease;
-    /* Гладкое изображение */
     image-rendering: auto;
     -ms-interpolation-mode: bicubic;
     filter: brightness(1);
@@ -131,6 +125,19 @@ body {
 .pixel-button:hover {
     transform: scale(1.15);
     filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+/* Цветовые эффекты при наведении для разных кнопок */
+.tg-button:hover {
+    filter: drop-shadow(0 0 8px rgba(0, 136, 204, 0.5));
+}
+
+.yt-button:hover {
+    filter: drop-shadow(0 0 8px rgba(255, 0, 0, 0.5));
+}
+
+.ds-button:hover {
+    filter: drop-shadow(0 0 8px rgba(88, 101, 242, 0.5));
 }
 
 /* Подсказки */
@@ -161,13 +168,14 @@ body {
     visibility: visible;
 }
 
-/* Скриншоты игры - ГЛАДКИЕ СКРИНШОТЫ */
+/* Скриншоты игры */
 .screenshots-container {
     width: 100%;
     background-color: #090a14;
     padding: 30px 18px;
     border-top: 6px solid #151d28;
     margin-bottom: 30px;
+    position: relative;
 }
 
 .screenshots-title {
@@ -187,6 +195,7 @@ body {
     justify-items: center;
     margin: 0 auto;
     width: 100%;
+    margin-bottom: 40px;
 }
 
 .screenshot {
@@ -195,8 +204,7 @@ body {
     max-width: 100%;
     object-fit: cover;
     border: 6px solid #394a50;
-    border-radius: 8px; /* Увеличил скругление */
-    /* Гладкое изображение */
+    border-radius: 8px;
     image-rendering: auto;
     -ms-interpolation-mode: bicubic;
     transition: all 0.3s ease;
@@ -209,6 +217,39 @@ body {
     border-color: #4a5a60;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
     filter: brightness(1.05);
+}
+
+/* Визуальный разделитель - КОНЕЦ СКРИНШОТОВ */
+.screenshots-end {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin: 40px auto 20px auto;
+    max-width: 600px;
+    padding: 0 20px;
+}
+
+.end-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        #4a5a60 20%, 
+        #394a50 50%, 
+        #4a5a60 80%, 
+        transparent 100%);
+    border-radius: 1px;
+}
+
+.end-text {
+    font-size: 14px;
+    color: #a0b0c0;
+    text-shadow: 1px 1px 0 #000;
+    padding: 0 15px;
+    white-space: nowrap;
+    font-style: italic;
+    letter-spacing: 1px;
 }
 
 /* Модальное окно для полноэкранного просмотра */
@@ -249,7 +290,6 @@ body {
     border: 3px solid #394a50;
     border-radius: 8px;
     background-color: #090a14;
-    /* Гладкое изображение в модалке */
     image-rendering: auto;
     -ms-interpolation-mode: bicubic;
 }
@@ -286,7 +326,7 @@ body {
     background-color: #090a14;
 }
 
-/* Гифка - ГЛАДКАЯ АНИМАЦИЯ */
+/* Гифка */
 .gif-container {
     width: 100%;
     height: 600px;
@@ -303,7 +343,6 @@ body {
     height: 432px;
     max-width: 90%;
     object-fit: contain;
-    /* Гладкая анимация */
     image-rendering: auto;
     -ms-interpolation-mode: bicubic;
     filter: brightness(1);
@@ -354,12 +393,93 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* ========== АДАПТИВНОСТЬ ДЛЯ МОБИЛЬНЫХ ========== */
 
+/* Для планшетов (900px и меньше) */
+@media (max-width: 900px) {
+    .game-screen {
+        transform: scale(0.9);
+        transform-origin: top center;
+        margin: 15px auto 50px auto;
+        display: block;
+    }
+    
+    body {
+        padding: 15px 5px;
+        justify-content: center;
+        display: flex;
+    }
+    
+    .header-container {
+        height: 100px;
+    }
+    
+    .logo-image {
+        height: 80px;
+    }
+    
+    .text-container {
+        min-height: 280px;
+    }
+    
+    .game-text {
+        font-size: 13px;
+        line-height: 21px;
+    }
+    
+    .buttons-container {
+        height: 100px;
+        gap: 60px;
+    }
+    
+    .pixel-button {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .pixel-button img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .screenshots-grid {
+        gap: 15px;
+    }
+    
+    .screenshot {
+        width: 320px;
+        height: 180px;
+    }
+    
+    .big-void {
+        height: 3000px;
+    }
+    
+    .gif-container {
+        height: 500px;
+    }
+    
+    .heart-gif {
+        width: 240px;
+        height: 360px;
+    }
+    
+    .footer-container {
+        height: 80px;
+        margin-top: 50px;
+    }
+    
+    .footer-text {
+        font-size: 10px;
+    }
+}
+
 /* Для всех мобильных (до 768px) */
 @media (max-width: 768px) {
     .game-screen {
         width: 100%;
         max-width: 100vw;
         padding: 10px 5px;
+        transform: none;
+        margin: 10px auto 40px auto;
     }
     
     .header-container {
@@ -383,7 +503,7 @@ body::-webkit-scrollbar-thumb:hover {
     
     .buttons-container {
         height: 80px;
-        gap: 60px;
+        gap: 40px;
         padding: 15px 0;
     }
     
@@ -409,6 +529,7 @@ body::-webkit-scrollbar-thumb:hover {
     .screenshots-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
+        margin-bottom: 30px;
     }
     
     .screenshot {
@@ -417,6 +538,18 @@ body::-webkit-scrollbar-thumb:hover {
         max-width: 100%;
         border-radius: 6px;
         border-width: 4px;
+    }
+    
+    /* Адаптивность для разделителя */
+    .screenshots-end {
+        margin: 30px auto 15px auto;
+        gap: 15px;
+        padding: 0 10px;
+    }
+    
+    .end-text {
+        font-size: 12px;
+        padding: 0 10px;
     }
     
     .big-void {
@@ -448,6 +581,85 @@ body::-webkit-scrollbar-thumb:hover {
     }
 }
 
+/* Для средних телефонов (600px и меньше) */
+@media (max-width: 600px) {
+    .game-screen {
+        padding: 8px 4px;
+    }
+    
+    .header-container {
+        height: 70px;
+    }
+    
+    .logo-image {
+        height: 56px;
+    }
+    
+    .text-container {
+        padding: 12px 8px;
+    }
+    
+    .game-text {
+        font-size: 13px;
+        line-height: 21px;
+    }
+    
+    .buttons-container {
+        height: 70px;
+        gap: 30px;
+    }
+    
+    .pixel-button {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .pixel-button img {
+        width: 56px;
+        height: 56px;
+    }
+    
+    .screenshots-grid {
+        gap: 8px;
+        margin-bottom: 25px;
+    }
+    
+    .screenshot {
+        height: 140px;
+    }
+    
+    .screenshots-end {
+        margin: 25px auto 12px auto;
+        gap: 12px;
+    }
+    
+    .end-text {
+        font-size: 11px;
+    }
+    
+    .big-void {
+        height: 2000px;
+    }
+    
+    .gif-container {
+        height: 250px;
+    }
+    
+    .heart-gif {
+        width: 160px;
+        height: 240px;
+    }
+    
+    .footer-container {
+        height: 55px;
+        margin-top: 25px;
+    }
+    
+    .footer-text {
+        font-size: 9px;
+    }
+}
+
 /* Для маленьких телефонов (до 480px) */
 @media (max-width: 480px) {
     .game-screen {
@@ -463,7 +675,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .text-container {
-        padding: 12px 8px;
+        padding: 10px 6px;
     }
     
     .game-text {
@@ -473,7 +685,7 @@ body::-webkit-scrollbar-thumb:hover {
     
     .buttons-container {
         height: 60px;
-        gap: 40px;
+        gap: 25px;
     }
     
     .pixel-button {
@@ -489,6 +701,7 @@ body::-webkit-scrollbar-thumb:hover {
     .screenshots-grid {
         grid-template-columns: 1fr;
         gap: 8px;
+        margin-bottom: 25px;
     }
     
     .screenshot {
@@ -496,12 +709,29 @@ body::-webkit-scrollbar-thumb:hover {
         border-radius: 6px;
     }
     
+    .screenshots-end {
+        margin: 25px auto 10px auto;
+        gap: 10px;
+        flex-direction: column;
+    }
+    
+    .end-line {
+        width: 80%;
+        order: 2;
+    }
+    
+    .end-text {
+        font-size: 11px;
+        order: 1;
+        margin-bottom: 5px;
+    }
+    
     .big-void {
         height: 1800px;
     }
     
     .gif-container {
-        height: 250px;
+        height: 220px;
     }
     
     .heart-gif {
@@ -511,26 +741,191 @@ body::-webkit-scrollbar-thumb:hover {
     
     .footer-container {
         height: 50px;
+        margin-top: 20px;
+        padding-top: 10px;
+    }
+    
+    .footer-text {
+        font-size: 8px;
     }
 }
 
 /* Для очень маленьких телефонов (до 320px) */
 @media (max-width: 320px) {
+    .game-screen {
+        padding: 3px;
+    }
+    
+    .header-container {
+        height: 50px;
+    }
+    
+    .logo-image {
+        height: 40px;
+    }
+    
+    .text-container {
+        padding: 8px 4px;
+    }
+    
     .game-text {
         font-size: 11px;
         line-height: 18px;
+    }
+    
+    .buttons-container {
+        height: 50px;
+        gap: 20px;
+    }
+    
+    .pixel-button {
+        width: 42px;
+        height: 42px;
+    }
+    
+    .pixel-button img {
+        width: 42px;
+        height: 42px;
     }
     
     .screenshot {
         height: 150px;
     }
     
+    .screenshots-end {
+        margin: 20px auto 8px auto;
+        gap: 8px;
+    }
+    
+    .end-text {
+        font-size: 10px;
+    }
+    
     .big-void {
         height: 1500px;
+    }
+    
+    .gif-container {
+        height: 180px;
     }
     
     .heart-gif {
         width: 120px;
         height: 180px;
+    }
+    
+    .footer-container {
+        height: 40px;
+        margin-top: 15px;
+    }
+    
+    .footer-text {
+        font-size: 7px;
+    }
+}
+
+/* Для очень больших экранов (ПК) */
+@media (min-width: 1200px) {
+    .game-screen {
+        transform: scale(1.1);
+        transform-origin: top center;
+        margin: 30px auto 80px auto;
+        display: block;
+    }
+    
+    body {
+        padding: 30px 0;
+        justify-content: center;
+        display: flex;
+    }
+    
+    .header-container {
+        height: 140px;
+    }
+    
+    .logo-image {
+        height: 112px;
+    }
+    
+    .text-container {
+        min-height: 330px;
+    }
+    
+    .game-text {
+        font-size: 13px;
+        line-height: 22px;
+    }
+    
+    .buttons-container {
+        height: 140px;
+        gap: 100px;
+    }
+    
+    .pixel-button {
+        width: 112px;
+        height: 112px;
+    }
+    
+    .pixel-button img {
+        width: 112px;
+        height: 112px;
+    }
+    
+    .screenshot {
+        width: 400px;
+        height: 225px;
+    }
+    
+    .big-void {
+        height: 4000px;
+    }
+    
+    .gif-container {
+        height: 700px;
+    }
+    
+    .heart-gif {
+        width: 336px;
+        height: 504px;
+    }
+    
+    .footer-container {
+        height: 100px;
+        margin-top: 80px;
+    }
+    
+    .footer-text {
+        font-size: 11px;
+    }
+}
+
+/* Для экстремально больших экранов */
+@media (min-width: 1600px) {
+    .game-screen {
+        transform: scale(1.2);
+    }
+    
+    .big-void {
+        height: 4500px;
+    }
+}
+
+/* Фикс для iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    @media (max-width: 768px) {
+        body {
+            padding-top: env(safe-area-inset-top);
+            padding-bottom: env(safe-area-inset-bottom);
+            padding-left: env(safe-area-inset-left);
+            padding-right: env(safe-area-inset-right);
+        }
+    }
+}
+
+/* Фикс для Firefox */
+@-moz-document url-prefix() {
+    body {
+        scrollbar-width: thin;
+        scrollbar-color: #394a50 #0c1117;
     }
 }
