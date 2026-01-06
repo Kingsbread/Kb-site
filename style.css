@@ -1,242 +1,242 @@
-/* Сброс и базовые стили */
+/* Сброс стилей */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     image-rendering: pixelated;
-    image-rendering: -moz-crisp-edges;
-    image-rendering: crisp-edges;
 }
 
 body {
     background-color: #090a14;
     font-family: 'Kingsbread', monospace;
-    color: #ffffff;
-    overflow-x: hidden;
+    color: white;
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
 }
 
-/* Экран игры (визуально 256x144, но масштабируется) */
-.game-screen {
-    width: 256px;
-    height: 144px;
-    transform: scale(3); /* Масштаб 3x для нормального отображения */
-    transform-origin: center;
-    position: relative;
-    border: 2px solid #151d28;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+/* Основной контейнер */
+.game-container {
+    width: 1024px;
+    max-width: 90vw;
+    border: 4px solid #151d28;
+    background: #090a14;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.7);
 }
 
-/* Контейнер логотипа */
-.logo-container {
-    width: 100%;
-    height: 32px;
+/* Шапка с логотипом */
+.header {
     background-color: #394a50;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 2px solid #2a373c;
+    padding: 15px;
+    text-align: center;
+    border-bottom: 3px solid #2a373c;
 }
 
 .logo {
-    image-rendering: pixelated;
-    height: 24px;
+    height: 60px;
     width: auto;
+    image-rendering: pixelated;
 }
 
-/* Контейнер текста */
-.text-container {
-    width: 100%;
-    height: 70px;
+/* Контейнер с текстом игры */
+.game-text-container {
     background-color: #151d28;
-    overflow: hidden;
-    position: relative;
+    padding: 20px;
+    max-height: 300px;
+    overflow-y: auto;
     border-bottom: 2px solid #0c1117;
 }
 
-.text-content {
-    padding: 4px 6px;
-    height: 100%;
-    overflow-y: auto;
-}
-
-.game-text {
-    font-size: 4px;
-    line-height: 6px;
+.game-text-scroll {
+    font-size: 16px;
+    line-height: 1.6;
     color: #e0e0e0;
-    text-shadow: 1px 1px 0 #000;
-    letter-spacing: 0.3px;
 }
 
-/* Пропасть */
-.void {
-    width: 100%;
-    height: 20px;
+.game-text-scroll p {
+    margin-bottom: 10px;
+}
+
+/* Прокрутка */
+.game-text-container::-webkit-scrollbar {
+    width: 8px;
+}
+
+.game-text-container::-webkit-scrollbar-track {
+    background: #0c1117;
+}
+
+.game-text-container::-webkit-scrollbar-thumb {
+    background: #394a50;
+    border-radius: 2px;
+}
+
+/* Секция с гифкой */
+.gif-section {
     background-color: #090a14;
-}
-
-/* Контейнер гифки */
-.gif-container {
-    width: 100%;
-    height: 50px;
+    padding: 30px;
+    text-align: center;
+    min-height: 200px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-color: #090a14;
+    justify-content: center;
 }
 
 .heart-gif {
+    width: 120px;
+    height: 120px;
     image-rendering: pixelated;
-    width: 48px;
-    height: 48px;
+    filter: drop-shadow(0 0 5px rgba(255, 51, 102, 0.7));
 }
 
-/* Контейнер кнопок */
-.buttons-container {
-    width: 100%;
-    height: 32px;
+/* Секция с кнопками */
+.buttons-section {
+    background-color: #090a14;
+    padding: 30px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 32px;
-    background-color: #090a14;
-    position: relative;
-    padding-top: 4px;
+    gap: 50px;
+    flex-wrap: wrap;
 }
 
-/* Кнопки */
-.pixel-button {
+.social-button {
     position: relative;
     display: inline-block;
-    text-decoration: none;
-    width: 32px;
-    height: 32px;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.2s;
 }
 
-.pixel-button img {
+.social-button img {
     position: absolute;
     top: 0;
     left: 0;
-    width: 32px;
-    height: 32px;
-    transition: opacity 0.1s;
+    width: 100%;
+    height: 100%;
     image-rendering: pixelated;
 }
 
-.button-default {
+.btn-idle {
     opacity: 1;
 }
 
-.button-hover {
+.btn-hover {
     opacity: 0;
 }
 
-.pixel-button:hover .button-default {
+.social-button:hover .btn-idle {
     opacity: 0;
 }
 
-.pixel-button:hover .button-hover {
+.social-button:hover .btn-hover {
     opacity: 1;
+}
+
+.social-button:hover {
+    transform: scale(1.1);
 }
 
 /* Подсказки */
 .tooltip {
     position: absolute;
-    bottom: 100%;
+    bottom: -40px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #151d28;
-    color: #ffffff;
-    padding: 2px 6px;
-    font-size: 4px;
-    border-radius: 2px;
+    color: white;
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 3px;
     white-space: nowrap;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.2s;
+    transition: opacity 0.3s;
     border: 1px solid #394a50;
-    pointer-events: none;
-    margin-bottom: 4px;
+    z-index: 10;
 }
 
-.pixel-button:hover .tooltip {
+.social-button:hover .tooltip {
     opacity: 1;
     visibility: visible;
 }
 
-/* Копирайт */
-.copyright {
-    width: 100%;
-    padding: 2px 0;
+/* Футер */
+.footer {
     background-color: #090a14;
+    padding: 15px;
     text-align: center;
-    border-top: 1px solid #151d28;
-}
-
-.copyright p {
-    font-size: 3px;
+    border-top: 2px solid #151d28;
     color: #7a7a8c;
-    text-shadow: 1px 1px 0 #000;
-}
-
-/* Скроллбар для текста */
-.text-content::-webkit-scrollbar {
-    width: 3px;
-}
-
-.text-content::-webkit-scrollbar-track {
-    background: #0c1117;
-}
-
-.text-content::-webkit-scrollbar-thumb {
-    background: #394a50;
+    font-size: 14px;
 }
 
 /* Адаптивность */
-@media (max-width: 900px) {
-    .game-screen {
-        transform: scale(2);
+@media (max-width: 768px) {
+    .game-container {
+        width: 95%;
+    }
+    
+    .logo {
+        height: 40px;
+    }
+    
+    .game-text-container {
+        max-height: 250px;
+        padding: 15px;
+    }
+    
+    .game-text-scroll {
+        font-size: 14px;
+    }
+    
+    .heart-gif {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .social-button {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .buttons-section {
+        gap: 30px;
+        padding: 20px;
     }
 }
 
-@media (max-width: 600px) {
-    .game-screen {
-        transform: scale(1.5);
+@media (max-width: 480px) {
+    .logo {
+        height: 30px;
     }
-}
-
-@media (max-width: 400px) {
-    .game-screen {
-        transform: scale(1.2);
+    
+    .game-text-container {
+        max-height: 200px;
     }
-}
-
-/* Для очень больших экранов */
-@media (min-width: 1200px) {
-    .game-screen {
-        transform: scale(4);
+    
+    .game-text-scroll {
+        font-size: 12px;
     }
-}
-
-/* Фикс пиксельных границ */
-.game-screen > * {
-    border-style: solid;
-    border-color: #000;
-    border-width: 0;
-}
-
-.logo-container {
-    border-bottom-width: 1px;
-}
-
-.text-container {
-    border-bottom-width: 1px;
-}
-
-.buttons-container {
-    border-top-width: 1px;
+    
+    .heart-gif {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .social-button {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .buttons-section {
+        gap: 20px;
+        padding: 15px;
+    }
+    
+    .tooltip {
+        font-size: 10px;
+        bottom: -35px;
+    }
 }
