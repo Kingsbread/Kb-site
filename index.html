@@ -3,73 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сердце и глаз</title>
+    <title>Kingsbread - Пиксельная 2D RPG</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @font-face {
+            font-family: 'Kingsbread';
+            src: url('Kingsbread Font.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Основная гифка -->
+    <div class="game-screen">
+        <!-- Логотип -->
+        <div class="logo-container">
+            <img src="kb_logo.png" alt="Kingsbread" class="logo">
+        </div>
+
+        <!-- Текст игры -->
+        <div class="text-container">
+            <p class="game-text">
+                Kingsbread - это пиксельная 2D RPG игра. События обворачиваются в средневековой пустынной стране фентези-мира
+                <br><br>
+                Главный герой Сил, что живёт в бедности с дедом, начинает понимать: чтобы не умереть с голоду от сильной засухи, он должен пойти на отчаянный шаг - украсть деньги у своего босса и отправиться в соседнее королевство за пищей
+                <br><br>
+                В пути Сил встречает разнообразных персонажей. Он старается помочь каждому из них, но даже не подозревает, что за ним по пятам уже идёт наёмник, подосланный разгневанным боссом. Тот расставляет ловушки и подкупает людей, чтобы вернуть деньги и возможно даже убить мальчика!
+                <br><br>
+                Игра очень сильно завязана на здешней религии. Также из-за фентезийности данного мира, в игре присутствуют монстры, магия и т.д.
+                <br><br>
+                А также Сил имеет свой характер, из-за чего-...
+                ...
+                Извини, нельзя.
+                <br><br>
+                Следите за разработкой и не пропустите релиз демо-версии, к релизу которой мы с каждым днём всё ближе и ближе, по ссылкам ниже!
+            </p>
+        </div>
+
+        <!-- Пропасть -->
+        <div class="void"></div>
+
+        <!-- Гифка -->
         <div class="gif-container">
-            <img src="img/heart_and_eye.gif" alt="Сердце и глаз" class="main-gif">
-            <div class="gif-glow"></div>
+            <img src="img/heart_and_eye.gif" alt="Сердце и глаз" class="heart-gif">
         </div>
 
-        <!-- Заголовок -->
-        <h1><i class="fas fa-heartbeat"></i> СИМБИОЗ <i class="fas fa-eye"></i></h1>
-        <p class="subtitle">Где эмоции встречаются с восприятием</p>
-
-        <!-- Описание -->
-        <div class="description">
-            <p>Это анимационное представление единства чувства и зрения.<br>Сердце бьётся в ритме с наблюдающим глазом.</p>
-        </div>
-
-        <!-- Ссылки -->
-        <div class="links">
-            <a href="https://github.com" target="_blank" class="link-btn github">
-                <i class="fab fa-github"></i> Исходный код на GitHub
+        <!-- Кнопки -->
+        <div class="buttons-container">
+            <!-- Телеграм кнопка -->
+            <a href="https://t.me/kingsbread_official" target="_blank" class="pixel-button tg-button">
+                <img src="tg_idle.png" alt="Телеграм" class="button-default">
+                <img src="tg_sel.png" alt="Телеграм" class="button-hover">
+                <span class="tooltip">Телеграм канал Kingsbread</span>
             </a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="link-btn youtube">
-                <i class="fab fa-youtube"></i> Видео о создании
+
+            <!-- Дискорд кнопка -->
+            <a href="https://discord.gg/a5KjEgGjqV" target="_blank" class="pixel-button ds-button">
+                <img src="ds_idle.png" alt="Дискорд" class="button-default">
+                <img src="ds_sel.png" alt="Дискорд" class="button-hover">
+                <span class="tooltip">Дискорд сервер Kingsbread</span>
             </a>
         </div>
 
-        <!-- Информация -->
-        <div class="info">
-            <div class="info-box">
-                <i class="fas fa-palette"></i>
-                <h3>Анимация</h3>
-                <p>Бесконечный цикл символического взаимодействия</p>
-            </div>
-            <div class="info-box">
-                <i class="fas fa-magic"></i>
-                <h3>Эффекты</h3>
-                <p>Свечение и плавные переходы</p>
-            </div>
-            <div class="info-box">
-                <i class="fas fa-expand-alt"></i>
-                <h3>Адаптивность</h3>
-                <p>Корректно отображается на всех устройствах</p>
-            </div>
+        <!-- Копирайт -->
+        <div class="copyright">
+            <p>© 2024 Kingsbread Game Studio</p>
         </div>
-
-        <!-- Футер -->
-        <footer>
-            <p>Домен: <span class="domain">yourdomain.org</span> | Создано с <i class="fas fa-heart pulse"></i></p>
-            <p class="copyright">© 2023 Симбиоз сердца и глаза. Вселенная визуальных экспериментов.</p>
-        </footer>
     </div>
 
-    <!-- Анимационные элементы фона -->
-    <div class="particles">
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-        <div class="particle"></div>
-    </div>
+    <script>
+        // Функция для масштабирования всех пиксельных изображений
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                // Сохраняем оригинальные размеры
+                img.dataset.originalWidth = img.naturalWidth;
+                img.dataset.originalHeight = img.naturalHeight;
+                
+                // Масштабируем кратно оригинальным размерам
+                const scale = Math.floor(window.innerWidth / 256);
+                const baseScale = Math.max(1, Math.floor(scale / 2));
+                
+                img.style.width = `${img.naturalWidth * baseScale}px`;
+                img.style.height = `${img.naturalHeight * baseScale}px`;
+                img.style.imageRendering = 'pixelated';
+            });
+
+            // Настройка масштаба всего экрана игры
+            const gameScreen = document.querySelector('.game-screen');
+            function updateScale() {
+                const scale = Math.min(
+                    window.innerWidth / 256,
+                    window.innerHeight / 144
+                );
+                gameScreen.style.transform = `scale(${scale})`;
+            }
+            
+            updateScale();
+            window.addEventListener('resize', updateScale);
+        });
+    </script>
 </body>
 </html>
