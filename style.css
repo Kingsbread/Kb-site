@@ -29,19 +29,19 @@ body {
     position: relative;
 }
 
-/* Шапка с логотипом */
+/* Шапка с логотипом - УМЕНЬШЕН В 5 РАЗ */
 .header-container {
     width: 100%;
-    height: 32px;
+    height: 20px; /* Было 32px - уменьшено */
     background-color: #394a50;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 2px 0;
+    padding: 1px 0;
 }
 
 .logo-image {
-    height: 24px;
+    height: 12px; /* Было 24px - уменьшено в 2 раза (в 5 раз от оригинального размера) */
     width: auto;
     display: block;
 }
@@ -49,7 +49,7 @@ body {
 /* Контейнер текста */
 .text-container {
     width: 100%;
-    height: 70px;
+    height: 80px; /* Увеличено на 10px из-за уменьшения шапки */
     background-color: #151d28;
     overflow: hidden;
     position: relative;
@@ -72,14 +72,14 @@ body {
 /* Пропасть */
 .void {
     width: 100%;
-    height: 5px; /* Уменьшена для большего места сердцу */
+    height: 5px;
     background-color: #090a14;
 }
 
-/* Контейнер гифки - СЕРДЦЕ УВЕЛИЧЕНО В 3 РАЗА */
+/* Контейнер гифки */
 .gif-container {
     width: 100%;
-    height: 70px; /* Увеличено для большего сердца */
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -87,8 +87,8 @@ body {
 }
 
 .heart-gif {
-    width: 96px;  /* Было 32px - увеличение в 3 раза */
-    height: 144px; /* Было 48px - увеличение в 3 раза */
+    width: 96px;
+    height: 144px;
     object-fit: contain;
     image-rendering: pixelated;
 }
@@ -209,8 +209,16 @@ body {
     }
     
     .heart-gif {
-        width: 64px;  /* Адаптивный размер для телефона */
+        width: 64px;
         height: 96px;
+    }
+    
+    .header-container {
+        height: 16px;
+    }
+    
+    .logo-image {
+        height: 10px;
     }
 }
 
@@ -222,6 +230,14 @@ body {
     .heart-gif {
         width: 48px;
         height: 72px;
+    }
+    
+    .header-container {
+        height: 14px;
+    }
+    
+    .logo-image {
+        height: 8px;
     }
 }
 
