@@ -30,8 +30,9 @@ body {
     transform: scale(3);
     transform-origin: top center;
     position: relative;
-    margin-top: 20px;
-    margin-bottom: 60px;
+    margin: 20px auto 60px auto; /* Центрирование */
+    left: 0;
+    right: 0;
 }
 
 /* Шапка с логотипом */
@@ -51,7 +52,7 @@ body {
     display: block;
 }
 
-/* Контейнер текста */
+/* Контейнер текста - ТЕКСТ ПО ЦЕНТРУ */
 .text-container {
     width: 100%;
     min-height: 100px;
@@ -72,7 +73,7 @@ body {
     text-shadow: 1px 1px 0 #000;
     letter-spacing: 0.3px;
     margin: 0;
-    text-align: left;
+    text-align: center; /* Текст по центру! */
 }
 
 /* Кнопки ПОД ТЕКСТОМ */
@@ -326,13 +327,14 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 900px) {
     .game-screen {
         transform: scale(2.5);
-        margin-left: auto; /* Центрирование */
-        margin-right: auto; /* Центрирование */
+        margin: 15px auto 50px auto;
+        display: block;
     }
     
     body {
-        padding: 15px 10px; /* Добавил горизонтальные отступы */
+        padding: 15px 5px;
         justify-content: center;
+        display: flex;
     }
     
     .header-container {
@@ -353,21 +355,30 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-/* Для средних телефонов (600px и меньше) - ИСПРАВЛЕНИЕ СМЕЩЕНИЯ */
+/* Для средних телефонов (600px и меньше) - ФИКС СМЕЩЕНИЯ */
 @media (max-width: 600px) {
     .game-screen {
         transform: scale(2);
-        margin-left: auto;
-        margin-right: auto;
+        margin: 10px auto 40px auto;
+        display: block;
+        position: relative;
         left: 0;
         right: 0;
-        position: relative;
+        transform-origin: center top; /* Изменяем точку трансформации */
     }
     
     body {
-        padding: 10px 8px; /* Больше отступов по бокам */
+        padding: 10px 0; /* Убрал горизонтальные отступы */
         justify-content: center;
-        overflow-x: hidden; /* Предотвращаем горизонтальную прокрутку */
+        display: flex;
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    /* Центрирование контента на телефонах */
+    .game-screen > * {
+        margin-left: auto;
+        margin-right: auto;
     }
     
     .heart-gif {
@@ -405,12 +416,10 @@ body::-webkit-scrollbar-thumb {
         font-size: 20px;
     }
     
-    /* Центрирование скриншотов на телефонах */
     .screenshots-grid {
         justify-items: center;
-        margin-left: auto;
-        margin-right: auto;
-        max-width: 220px; /* Ограничиваем ширину сетки */
+        max-width: 220px;
+        margin: 0 auto;
     }
 }
 
@@ -418,15 +427,14 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 400px) {
     .game-screen {
         transform: scale(1.5);
-        margin-left: auto;
-        margin-right: auto;
-        left: 0;
-        right: 0;
+        margin: 5px auto 30px auto;
+        display: block;
     }
     
     body {
-        padding: 5px 5px; /* Отступы по бокам */
+        padding: 5px 0;
         justify-content: center;
+        display: flex;
         overflow-x: hidden;
     }
     
@@ -445,9 +453,8 @@ body::-webkit-scrollbar-thumb {
     
     .screenshots-grid {
         grid-template-columns: 1fr;
-        max-width: 150px; /* Уже для одного столбца */
-        margin-left: auto;
-        margin-right: auto;
+        max-width: 150px;
+        margin: 0 auto;
     }
     
     .screenshot {
@@ -476,12 +483,11 @@ body::-webkit-scrollbar-thumb {
 @media (max-width: 320px) {
     .game-screen {
         transform: scale(1.3);
-        margin-left: auto;
-        margin-right: auto;
+        margin: 3px auto 20px auto;
     }
     
     body {
-        padding: 5px 3px;
+        padding: 3px 0;
     }
     
     .screenshot {
@@ -494,17 +500,18 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-/* Для очень больших экранов (ПК) - ничего не меняем */
+/* Для очень больших экранов (ПК) */
 @media (min-width: 1200px) {
     .game-screen {
         transform: scale(4);
-        margin-left: auto;
-        margin-right: auto;
+        margin: 30px auto 80px auto;
+        display: block;
     }
     
     body {
         padding: 30px 0;
         justify-content: center;
+        display: flex;
     }
     
     .header-container {
@@ -516,9 +523,9 @@ body::-webkit-scrollbar-thumb {
     }
 }
 
-/* Дополнительный фикс для центрирования на всех устройствах */
-.game-screen {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+/* Дополнительный фикс центрирования для всех устройств */
+.container-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
 }
