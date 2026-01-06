@@ -17,20 +17,19 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0; /* Убрал padding */
+    padding: 0;
 }
 
-/* Экран игры - БЕЗ РАМКИ И ТЕНИ */
+/* Экран игры */
 .game-screen {
     width: 256px;
     height: 144px;
     transform: scale(3); /* Масштаб 3x */
     transform-origin: center;
     position: relative;
-    /* Убрано: border, box-shadow */
 }
 
-/* Шапка с названием */
+/* Шапка с логотипом */
 .header-container {
     width: 100%;
     height: 32px;
@@ -38,14 +37,13 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2px 0;
 }
 
-.game-title {
-    font-size: 10px;
-    color: #ffffff;
-    text-shadow: 2px 2px 0 #000;
-    letter-spacing: 1px;
-    margin: 0;
+.logo-image {
+    height: 24px;
+    width: auto;
+    display: block;
 }
 
 /* Контейнер текста */
@@ -71,17 +69,17 @@ body {
     letter-spacing: 0.3px;
 }
 
-/* Пропасть - УМЕНЬШЕНА, чтобы гифка была выше */
+/* Пропасть */
 .void {
     width: 100%;
-    height: 10px; /* Было 20px */
+    height: 5px; /* Уменьшена для большего места сердцу */
     background-color: #090a14;
 }
 
-/* Контейнер гифки - ПОДНЯТ ВЫШЕ */
+/* Контейнер гифки - СЕРДЦЕ УВЕЛИЧЕНО В 3 РАЗА */
 .gif-container {
     width: 100%;
-    height: 60px; /* Увеличено с 50px */
+    height: 70px; /* Увеличено для большего сердца */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -89,9 +87,10 @@ body {
 }
 
 .heart-gif {
-    width: 32px;
-    height: 48px;
+    width: 96px;  /* Было 32px - увеличение в 3 раза */
+    height: 144px; /* Было 48px - увеличение в 3 раза */
     object-fit: contain;
+    image-rendering: pixelated;
 }
 
 /* Контейнер кнопок */
@@ -123,6 +122,7 @@ body {
     width: 32px;
     height: 32px;
     transition: opacity 0.1s;
+    image-rendering: pixelated;
 }
 
 .button-default {
@@ -207,11 +207,21 @@ body {
     .game-screen {
         transform: scale(2);
     }
+    
+    .heart-gif {
+        width: 64px;  /* Адаптивный размер для телефона */
+        height: 96px;
+    }
 }
 
 @media (max-width: 400px) {
     .game-screen {
         transform: scale(1.5);
+    }
+    
+    .heart-gif {
+        width: 48px;
+        height: 72px;
     }
 }
 
