@@ -30,7 +30,7 @@ body {
     transform: scale(3);
     transform-origin: top center;
     position: relative;
-    margin: 20px auto 60px auto; /* Центрирование */
+    margin: 20px auto 60px auto;
     left: 0;
     right: 0;
 }
@@ -52,7 +52,7 @@ body {
     display: block;
 }
 
-/* Контейнер текста - ТЕКСТ ПО ЦЕНТРУ */
+/* Контейнер текста */
 .text-container {
     width: 100%;
     min-height: 100px;
@@ -73,7 +73,7 @@ body {
     text-shadow: 1px 1px 0 #000;
     letter-spacing: 0.3px;
     margin: 0;
-    text-align: center; /* Текст по центру! */
+    text-align: center;
 }
 
 /* Кнопки ПОД ТЕКСТОМ */
@@ -261,23 +261,23 @@ body {
     transform: scale(1.1);
 }
 
-/* Большой пустой пробел */
+/* Большой пустой пробел - УВЕЛИЧЕН В 10 РАЗ (было 120px) */
 .big-void {
     width: 100%;
-    height: 120px;
+    height: 1200px; /* Было 120px - увеличение в 10 раз! */
     background-color: #090a14;
 }
 
 /* Гифка */
 .gif-container {
     width: 100%;
-    height: 160px;
+    height: 200px; /* Увеличил высоту контейнера */
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #090a14;
     border-top: 2px solid #151d28;
-    margin-top: 20px;
+    margin-top: 0; /* Убрал margin-top т.к. есть большой пробел */
 }
 
 .heart-gif {
@@ -296,7 +296,7 @@ body {
     justify-content: center;
     align-items: center;
     border-top: 2px solid #151d28;
-    margin-top: 40px;
+    margin-top: 20px; /* Уменьшил отступ т.к. пробел и так большой */
     padding-top: 10px;
 }
 
@@ -349,13 +349,17 @@ body::-webkit-scrollbar-thumb {
         min-height: 120px;
     }
     
+    .big-void {
+        height: 1000px; /* Адаптивный размер для планшетов */
+    }
+    
     .modal-close {
         top: -45px;
         right: 0;
     }
 }
 
-/* Для средних телефонов (600px и меньше) - ФИКС СМЕЩЕНИЯ */
+/* Для средних телефонов (600px и меньше) */
 @media (max-width: 600px) {
     .game-screen {
         transform: scale(2);
@@ -364,18 +368,17 @@ body::-webkit-scrollbar-thumb {
         position: relative;
         left: 0;
         right: 0;
-        transform-origin: center top; /* Изменяем точку трансформации */
+        transform-origin: center top;
     }
     
     body {
-        padding: 10px 0; /* Убрал горизонтальные отступы */
+        padding: 10px 0;
         justify-content: center;
         display: flex;
         overflow-x: hidden;
         width: 100%;
     }
     
-    /* Центрирование контента на телефонах */
     .game-screen > * {
         margin-left: auto;
         margin-right: auto;
@@ -400,11 +403,11 @@ body::-webkit-scrollbar-thumb {
     }
     
     .big-void {
-        height: 100px;
+        height: 800px; /* Адаптивный размер для телефонов */
     }
     
     .footer-container {
-        margin-top: 30px;
+        margin-top: 15px;
         height: 25px;
     }
     
@@ -420,6 +423,10 @@ body::-webkit-scrollbar-thumb {
         justify-items: center;
         max-width: 220px;
         margin: 0 auto;
+    }
+    
+    .gif-container {
+        height: 150px;
     }
 }
 
@@ -463,11 +470,11 @@ body::-webkit-scrollbar-thumb {
     }
     
     .big-void {
-        height: 80px;
+        height: 600px; /* Меньше для очень маленьких экранов */
     }
     
     .footer-container {
-        margin-top: 20px;
+        margin-top: 10px;
         height: 20px;
     }
     
@@ -476,6 +483,10 @@ body::-webkit-scrollbar-thumb {
         width: 30px;
         height: 30px;
         font-size: 18px;
+    }
+    
+    .gif-container {
+        height: 120px;
     }
 }
 
@@ -497,6 +508,10 @@ body::-webkit-scrollbar-thumb {
     
     .screenshots-grid {
         max-width: 130px;
+    }
+    
+    .big-void {
+        height: 500px;
     }
 }
 
@@ -521,11 +536,12 @@ body::-webkit-scrollbar-thumb {
     .logo-image {
         height: 38px;
     }
-}
-
-/* Дополнительный фикс центрирования для всех устройств */
-.container-wrapper {
-    display: flex;
-    justify-content: center;
-    width: 100%;
+    
+    .big-void {
+        height: 1500px; /* Ещё больше для больших экранов */
+    }
+    
+    .gif-container {
+        height: 250px;
+    }
 }
