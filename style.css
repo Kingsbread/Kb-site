@@ -16,61 +16,64 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Изменил на flex-start для прокрутки */
-    padding: 20px 0; /* Добавил вертикальный padding */
+    align-items: flex-start;
+    padding: 20px 0;
     height: auto;
-    overflow-y: auto; /* Включаем вертикальную прокрутку */
+    overflow-y: auto;
 }
 
 /* Экран игры */
 .game-screen {
     width: 256px;
-    height: auto; /* Автоматическая высота */
+    height: auto;
     transform: scale(3);
-    transform-origin: top center; /* Изменил на top center */
+    transform-origin: top center;
     position: relative;
-    margin-top: 20px; /* Отступ сверху */
-    margin-bottom: 60px; /* Отступ снизу для прокрутки */
+    margin-top: 20px;
+    margin-bottom: 60px;
 }
 
-/* Шапка с логотипом */
+/* Шапка с логотипом - УВЕЛИЧЕН В 2 РАЗА */
 .header-container {
     width: 100%;
-    height: 20px;
+    height: 40px; /* Было 20px - увеличение в 2 раза */
     background-color: #394a50;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1px 0;
+    padding: 2px 0;
 }
 
 .logo-image {
-    height: 12px;
+    height: 32px; /* Было 16px - увеличение в 2 раза */
     width: auto;
     display: block;
 }
 
-/* Контейнер текста */
+/* Контейнер текста - БЕЗ ПРОКРУТКИ, ВЕСЬ ТЕКСТ ВИДЕН */
 .text-container {
     width: 100%;
-    height: 80px;
+    min-height: 100px; /* Увеличил минимальную высоту */
     background-color: #151d28;
-    overflow: hidden;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 6px;
 }
 
-.text-content {
-    padding: 4px 6px;
-    height: 100%;
-    overflow-y: auto;
+.text-content-centered {
+    width: 100%;
+    text-align: center; /* Выравнивание по центру */
 }
 
-.game-text {
+.game-text-centered {
     font-size: 4px;
     line-height: 6px;
     color: #e0e0e0;
     text-shadow: 1px 1px 0 #000;
     letter-spacing: 0.3px;
+    margin: 0 auto;
+    max-width: 220px; /* Ограничиваем ширину для читаемости */
 }
 
 /* Кнопки ПОД ТЕКСТОМ */
@@ -158,7 +161,7 @@ body {
     background-color: #090a14;
     padding: 10px 6px;
     border-top: 2px solid #151d28;
-    margin-bottom: 10px; /* Отступ снизу */
+    margin-bottom: 10px;
 }
 
 .screenshots-title {
@@ -172,7 +175,7 @@ body {
 .screenshots-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 6px; /* Увеличил расстояние между скриншотами */
+    gap: 6px;
     justify-items: center;
 }
 
@@ -184,6 +187,7 @@ body {
     border-radius: 2px;
     image-rendering: pixelated;
     transition: transform 0.2s, border-color 0.2s;
+    cursor: pointer; /* Курсор при наведении */
 }
 
 .screenshot:hover {
@@ -192,23 +196,77 @@ body {
     box-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
-/* Большой пустой пробел - УВЕЛИЧЕН */
+/* Модальное окно для полноэкранного просмотра */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-image {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border: 3px solid #394a50;
+    border-radius: 4px;
+}
+
+.modal-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    background: #394a50;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-close:hover {
+    background: #4a5a60;
+}
+
+/* Большой пустой пробел */
 .big-void {
     width: 100%;
-    height: 120px; /* Увеличил с 80px до 120px */
+    height: 120px;
     background-color: #090a14;
 }
 
-/* Гифка - ОПУЩЕНА НИЖЕ */
+/* Гифка */
 .gif-container {
     width: 100%;
-    height: 160px; /* Увеличил высоту контейнера */
+    height: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #090a14;
     border-top: 2px solid #151d28;
-    margin-top: 20px; /* Добавил отступ сверху */
+    margin-top: 20px;
 }
 
 .heart-gif {
@@ -217,19 +275,19 @@ body {
     object-fit: contain;
     image-rendering: pixelated;
     filter: drop-shadow(0 0 5px rgba(255, 51, 102, 0.7));
-    margin-top: 20px; /* Опустил гифку ниже */
+    margin-top: 20px;
 }
 
-/* Футер - ОПУЩЕН НИЖЕ СЕРДЦА */
+/* Футер */
 .footer-container {
     width: 100%;
-    height: 30px; /* Увеличил высоту */
+    height: 30px;
     background-color: #090a14;
     display: flex;
     justify-content: center;
     align-items: center;
     border-top: 2px solid #151d28;
-    margin-top: 40px; /* Большой отступ сверху, чтобы было после сердца */
+    margin-top: 40px;
     padding-top: 10px;
 }
 
@@ -238,19 +296,6 @@ body {
     color: #7a7a8c;
     text-shadow: 1px 1px 0 #000;
     margin: 0;
-}
-
-/* Скроллбар для текста */
-.text-content::-webkit-scrollbar {
-    width: 3px;
-}
-
-.text-content::-webkit-scrollbar-track {
-    background: #0c1117;
-}
-
-.text-content::-webkit-scrollbar-thumb {
-    background: #394a50;
 }
 
 /* Скроллбар для всего сайта */
@@ -276,6 +321,14 @@ body::-webkit-scrollbar-thumb {
     body {
         padding: 15px 0;
     }
+    
+    .header-container {
+        height: 32px;
+    }
+    
+    .logo-image {
+        height: 26px;
+    }
 }
 
 @media (max-width: 600px) {
@@ -293,11 +346,11 @@ body::-webkit-scrollbar-thumb {
     }
     
     .header-container {
-        height: 16px;
+        height: 26px;
     }
     
     .logo-image {
-        height: 10px;
+        height: 20px;
     }
     
     .screenshot {
@@ -330,11 +383,11 @@ body::-webkit-scrollbar-thumb {
     }
     
     .header-container {
-        height: 14px;
+        height: 20px;
     }
     
     .logo-image {
-        height: 8px;
+        height: 16px;
     }
     
     .screenshots-grid {
@@ -364,5 +417,13 @@ body::-webkit-scrollbar-thumb {
     
     body {
         padding: 30px 0;
+    }
+    
+    .header-container {
+        height: 48px;
+    }
+    
+    .logo-image {
+        height: 38px;
     }
 }
