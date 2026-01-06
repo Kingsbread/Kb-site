@@ -2,8 +2,9 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kingsbread</title>
+    <!-- Важно: добавляем правильный viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Kingsbread - Пиксельная 2D RPG</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/logo512.png" type="image/png">
     <style>
@@ -12,6 +13,14 @@
             src: url('Kingsbread Font.otf') format('opentype');
             font-weight: normal;
             font-style: normal;
+        }
+        /* Дополнительный фикс для мобильных */
+        @media (max-width: 600px) and (orientation: portrait) {
+            html, body {
+                overflow-x: hidden;
+                position: relative;
+                width: 100%;
+            }
         }
     </style>
 </head>
@@ -25,12 +34,12 @@
     </div>
 
     <div class="game-screen">
-        <!-- Шапка с логотипом - УВЕЛИЧЕН В 2 РАЗА -->
+        <!-- Шапка с логотипом -->
         <div class="header-container">
             <img src="img/kb_logo.png" alt="Kingsbread" class="logo-image">
         </div>
 
-        <!-- Текст игры - БЕЗ ПРОКРУТКИ, ВЕСЬ ВИДЕН -->
+        <!-- Текст игры -->
         <div class="text-container">
             <div class="text-content">
                 <p class="game-text">
@@ -88,7 +97,7 @@
         <!-- Большой пустой пробел -->
         <div class="big-void"></div>
 
-        <!-- Гифка - БЕЗ КРАСНОГО ЭФФЕКТА -->
+        <!-- Гифка -->
         <div class="gif-container">
             <img src="img/heart_and_eye.gif" alt="Сердце и глаз" class="heart-gif">
         </div>
@@ -100,14 +109,13 @@
     </div>
 
     <script>
-        // Модальное окно для скриншотов - ИСПРАВЛЕННЫЙ КОД
+        // Модальное окно для скриншотов
         document.addEventListener('DOMContentLoaded', function() {
             const modalOverlay = document.getElementById('modalOverlay');
             const modalImage = document.getElementById('modalImage');
             const modalClose = document.getElementById('modalClose');
             const screenshots = document.querySelectorAll('.screenshot');
             
-            // Открытие модального окна при клике на скриншот
             screenshots.forEach(screenshot => {
                 screenshot.addEventListener('click', function() {
                     const fullSizeImage = this.getAttribute('data-full');
@@ -118,13 +126,11 @@
                 });
             });
             
-            // Закрытие модального окна
             modalClose.addEventListener('click', function() {
                 modalOverlay.classList.remove('active');
                 document.body.style.overflow = 'auto';
             });
             
-            // Закрытие при клике вне изображения
             modalOverlay.addEventListener('click', function(e) {
                 if (e.target === modalOverlay) {
                     modalOverlay.classList.remove('active');
@@ -132,7 +138,6 @@
                 }
             });
             
-            // Закрытие по Escape
             document.addEventListener('keydown', function(e) {
                 if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
                     modalOverlay.classList.remove('active');
