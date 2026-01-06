@@ -19,7 +19,7 @@
     <!-- Модальное окно для полноэкранного просмотра скриншотов -->
     <div class="modal-overlay" id="modalOverlay">
         <div class="modal-content">
-            <button class="modal-close" id="modalClose">&times;</button>
+            <button class="modal-close" id="modalClose">✕</button>
             <img src="" alt="" class="modal-image" id="modalImage">
         </div>
     </div>
@@ -30,10 +30,10 @@
             <img src="img/kb_logo.png" alt="Kingsbread" class="logo-image">
         </div>
 
-        <!-- Текст игры - БЕЗ ПРОКРУТКИ, ПО ЦЕНТРУ -->
+        <!-- Текст игры - БЕЗ ПРОКРУТКИ, ВЕСЬ ВИДЕН -->
         <div class="text-container">
-            <div class="text-content-centered">
-                <p class="game-text-centered">
+            <div class="text-content">
+                <p class="game-text">
                     Kingsbread - это пиксельная 2D RPG игра. События обворачиваются в средневековой пустынной стране фентези-мира
                     <br><br>
                     Главный герой Сил, что живёт в бедности с дедом, начинает понимать: чтобы не умереть с голоду от сильной засухи, он должен пойти на отчаянный шаг - украсть деньги у своего босса и отправиться в соседнее королевство за пищей
@@ -88,7 +88,7 @@
         <!-- Большой пустой пробел -->
         <div class="big-void"></div>
 
-        <!-- Гифка -->
+        <!-- Гифка - БЕЗ КРАСНОГО ЭФФЕКТА -->
         <div class="gif-container">
             <img src="img/heart_and_eye.gif" alt="Сердце и глаз" class="heart-gif">
         </div>
@@ -100,7 +100,7 @@
     </div>
 
     <script>
-        // Модальное окно для скриншотов
+        // Модальное окно для скриншотов - ИСПРАВЛЕННЫЙ КОД
         document.addEventListener('DOMContentLoaded', function() {
             const modalOverlay = document.getElementById('modalOverlay');
             const modalImage = document.getElementById('modalImage');
@@ -113,29 +113,29 @@
                     const fullSizeImage = this.getAttribute('data-full');
                     modalImage.src = fullSizeImage;
                     modalImage.alt = this.alt;
-                    modalOverlay.style.display = 'flex';
-                    document.body.style.overflow = 'hidden'; // Блокируем прокрутку фона
+                    modalOverlay.classList.add('active');
+                    document.body.style.overflow = 'hidden';
                 });
             });
             
             // Закрытие модального окна
             modalClose.addEventListener('click', function() {
-                modalOverlay.style.display = 'none';
-                document.body.style.overflow = 'auto'; // Возвращаем прокрутку
+                modalOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
             });
             
             // Закрытие при клике вне изображения
             modalOverlay.addEventListener('click', function(e) {
                 if (e.target === modalOverlay) {
-                    modalOverlay.style.display = 'none';
+                    modalOverlay.classList.remove('active');
                     document.body.style.overflow = 'auto';
                 }
             });
             
             // Закрытие по Escape
             document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modalOverlay.style.display === 'flex') {
-                    modalOverlay.style.display = 'none';
+                if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
+                    modalOverlay.classList.remove('active');
                     document.body.style.overflow = 'auto';
                 }
             });
