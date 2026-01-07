@@ -223,7 +223,7 @@ body {
 .screenshots-end {
     position: relative;
     margin: 60px auto 30px auto;
-    padding: 40px 20px;
+    padding: 50px 20px;
     max-width: 100%;
     text-align: center;
 }
@@ -236,47 +236,51 @@ body {
     left: 0;
     right: 0;
     height: 3px;
-    background-color: #402751;
+    background-color: #394a50;
     transform: translateY(-50%);
     z-index: 1;
     border-radius: 2px;
-    box-shadow: 0 0 10px rgba(64, 39, 81, 0.5);
 }
 
-/* Текст поверх линии */
-.end-text {
+/* Контейнер текста */
+.end-text-container {
     position: relative;
     display: inline-block;
-    font-size: 18px;
-    color: #e0d0ff;
-    text-shadow: 
-        0 0 10px rgba(192, 132, 252, 0.7),
-        0 0 20px rgba(192, 132, 252, 0.5),
-        2px 2px 0 #000;
-    padding: 15px 30px;
     background-color: #090a14;
-    border: 2px solid #402751;
-    border-radius: 10px;
+    padding: 20px 40px;
+    border: 3px solid #394a50;
+    border-radius: 12px;
     z-index: 2;
-    font-style: italic;
-    letter-spacing: 1.5px;
-    font-weight: bold;
-    white-space: nowrap;
     box-shadow: 
-        0 0 15px rgba(64, 39, 81, 0.4),
-        inset 0 0 10px rgba(192, 132, 252, 0.1);
-    transition: all 0.3s ease;
+        0 0 20px rgba(57, 74, 80, 0.3),
+        inset 0 0 15px rgba(100, 120, 130, 0.1);
 }
 
-/* Эффект при наведении на текст */
-.end-text:hover {
+/* Первая строка */
+.end-text-main {
+    font-size: 22px;
     color: #ffffff;
-    background-color: #151028;
-    border-color: #5d3a8c;
-    transform: scale(1.05);
-    box-shadow: 
-        0 0 25px rgba(93, 58, 140, 0.6),
-        inset 0 0 15px rgba(192, 132, 252, 0.2);
+    text-shadow: 
+        2px 2px 0 #000,
+        0 0 5px rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    letter-spacing: 1.2px;
+    font-weight: bold;
+    margin: 0;
+    line-height: 1.4;
+}
+
+/* Вторая строка - год */
+.end-text-year {
+    font-size: 18px;
+    color: #a0b0c0;
+    text-shadow: 
+        1px 1px 0 #000,
+        0 0 3px rgba(160, 176, 192, 0.5);
+    letter-spacing: 1px;
+    margin: 5px 0 0 0;
+    font-weight: normal;
+    font-style: normal;
 }
 
 /* Модальное окно для полноэкранного просмотра */
@@ -478,16 +482,23 @@ body::-webkit-scrollbar-thumb:hover {
     
     .screenshots-end {
         margin: 50px auto 25px auto;
-        padding: 30px 15px;
+        padding: 40px 15px;
     }
     
     .screenshots-end::before {
         height: 2px;
     }
     
-    .end-text {
-        font-size: 16px;
-        padding: 12px 25px;
+    .end-text-container {
+        padding: 15px 30px;
+    }
+    
+    .end-text-main {
+        font-size: 22px; /* Одинаковый размер на всех устройствах */
+    }
+    
+    .end-text-year {
+        font-size: 18px; /* Одинаковый размер на всех устройствах */
     }
     
     .big-void {
@@ -583,14 +594,19 @@ body::-webkit-scrollbar-thumb:hover {
     
     .screenshots-end {
         margin: 40px auto 20px auto;
-        padding: 25px 10px;
+        padding: 30px 10px;
     }
     
-    .end-text {
-        font-size: 15px;
-        padding: 10px 20px;
-        white-space: normal;
-        max-width: 90%;
+    .end-text-container {
+        padding: 12px 25px;
+    }
+    
+    .end-text-main {
+        font-size: 22px; /* Одинаковый размер на всех устройствах */
+    }
+    
+    .end-text-year {
+        font-size: 18px; /* Одинаковый размер на всех устройствах */
     }
     
     .big-void {
@@ -671,17 +687,23 @@ body::-webkit-scrollbar-thumb:hover {
     
     .screenshots-end {
         margin: 35px auto 15px auto;
-        padding: 20px 8px;
+        padding: 25px 8px;
     }
     
     .screenshots-end::before {
         height: 1.5px;
     }
     
-    .end-text {
-        font-size: 14px;
-        padding: 8px 16px;
-        letter-spacing: 1px;
+    .end-text-container {
+        padding: 10px 20px;
+    }
+    
+    .end-text-main {
+        font-size: 22px; /* Одинаковый размер на всех устройствах */
+    }
+    
+    .end-text-year {
+        font-size: 18px; /* Одинаковый размер на всех устройствах */
     }
     
     .big-void {
@@ -758,15 +780,22 @@ body::-webkit-scrollbar-thumb:hover {
     
     .screenshots-end {
         margin: 30px auto 12px auto;
-        padding: 15px 5px;
+        padding: 20px 5px;
     }
     
-    .end-text {
-        font-size: 13px;
-        padding: 6px 12px;
-        border-width: 1px;
-        white-space: normal;
-        line-height: 1.4;
+    .end-text-container {
+        padding: 8px 16px;
+        border-width: 2px;
+    }
+    
+    .end-text-main {
+        font-size: 22px; /* Одинаковый размер на всех устройствах */
+        line-height: 1.3;
+    }
+    
+    .end-text-year {
+        font-size: 18px; /* Одинаковый размер на всех устройствах */
+        line-height: 1.3;
     }
     
     .big-void {
@@ -837,13 +866,22 @@ body::-webkit-scrollbar-thumb:hover {
     
     .screenshots-end {
         margin: 25px auto 10px auto;
-        padding: 10px 3px;
+        padding: 15px 3px;
     }
     
-    .end-text {
-        font-size: 12px;
-        padding: 5px 10px;
-        letter-spacing: 0.5px;
+    .end-text-container {
+        padding: 6px 12px;
+        border-width: 1px;
+    }
+    
+    .end-text-main {
+        font-size: 22px; /* Одинаковый размер на всех устройствах */
+        line-height: 1.2;
+    }
+    
+    .end-text-year {
+        font-size: 18px; /* Одинаковый размер на всех устройствах */
+        line-height: 1.2;
     }
     
     .big-void {
@@ -923,12 +961,19 @@ body::-webkit-scrollbar-thumb:hover {
     
     .screenshots-end {
         margin: 70px auto 40px auto;
-        padding: 50px 25px;
+        padding: 60px 25px;
     }
     
-    .end-text {
-        font-size: 20px;
-        padding: 20px 40px;
+    .end-text-container {
+        padding: 25px 50px;
+    }
+    
+    .end-text-main {
+        font-size: 22px;
+    }
+    
+    .end-text-year {
+        font-size: 18px;
     }
     
     .big-void {
@@ -962,10 +1007,11 @@ body::-webkit-scrollbar-thumb:hover {
     
     .screenshots-end {
         margin: 80px auto 50px auto;
+        padding: 70px 30px;
     }
     
-    .end-text {
-        font-size: 22px;
+    .end-text-container {
+        padding: 30px 60px;
     }
     
     .big-void {
