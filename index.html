@@ -60,7 +60,7 @@
                 <span class="tooltip">Телеграм канал Kingsbread</span>
             </a>
 
-            <!-- Ютуб кнопка (НОВАЯ) -->
+            <!-- Ютуб кнопка -->
             <a href="https://www.youtube.com/@Kingsbread_official" target="_blank" class="pixel-button yt-button">
                 <img src="img/yt_idle.png" alt="YouTube" class="button-default">
                 <img src="img/yt_sel.png" alt="YouTube" class="button-hover">
@@ -72,6 +72,23 @@
                 <img src="img/ds_idle.png" alt="Дискорд" class="button-default">
                 <img src="img/ds_sel.png" alt="Дискорд" class="button-hover">
                 <span class="tooltip">Дискорд сервер Kingsbread</span>
+            </a>
+        </div>
+
+        <!-- Второй ряд кнопок (TikTok и SoundCloud) -->
+        <div class="buttons-container-2">
+            <!-- TikTok кнопка -->
+            <a href="https://www.tiktok.com/@kingsbread_official" target="_blank" class="pixel-button tt-button" style="grid-column: 2;">
+                <img src="img/tt_idle.png" alt="TikTok" class="button-default">
+                <img src="img/tt_sel.png" alt="TikTok" class="button-hover">
+                <span class="tooltip">ТикТок Kingsbread</span>
+            </a>
+
+            <!-- SoundCloud кнопка -->
+            <a href="https://soundcloud.com/may4ik/sets/kingsbread-ost" target="_blank" class="pixel-button sc-button" style="grid-column: 4;">
+                <img src="img/sc_idle.png" alt="SoundCloud" class="button-default">
+                <img src="img/sc_sel.png" alt="SoundCloud" class="button-hover">
+                <span class="tooltip">SoundCloud Kingsbread</span>
             </a>
         </div>
 
@@ -91,13 +108,19 @@
                 <img src="screens/Savepoint.png" alt="Точка сохранения" class="screenshot" data-full="screens/Savepoint.png">
             </div>
             
-    <!-- Визуальный разделитель - КОНЕЦ СКРИНШОТОВ -->
-    <div class="screenshots-end">
-        <div class="end-text-container">
-            <p class="end-text-main">Демо-версия уже скоро!</p>
-            <p class="end-text-year">(2026)</p>
+            <!-- Визуальный разделитель - КОНЕЦ СКРИНШОТОВ -->
+            <div class="screenshots-end">
+                <div class="end-text-container">
+                    <p class="end-text-main">Демо-версия уже скоро!</p>
+                    <p class="end-text-year">(2026)</p>
+                </div>
+            </div>
+
+            <!-- Дополнительный скриншот why.png -->
+            <div class="extra-screenshot-container">
+                <img src="screens/why.png" alt="Почему?" class="extra-screenshot" data-full="screens/why.png">
+            </div>
         </div>
-    </div>
 
         <!-- Большой пустой пробел -->
         <div class="big-void"></div>
@@ -119,7 +142,7 @@
             const modalOverlay = document.getElementById('modalOverlay');
             const modalImage = document.getElementById('modalImage');
             const modalClose = document.getElementById('modalClose');
-            const screenshots = document.querySelectorAll('.screenshot');
+            const screenshots = document.querySelectorAll('.screenshot, .extra-screenshot');
             
             screenshots.forEach(screenshot => {
                 screenshot.addEventListener('click', function() {
