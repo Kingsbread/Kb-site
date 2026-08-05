@@ -307,7 +307,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 0 0 0; /* минимальный отступ сверху */
+    padding: 10px 0 0 0; /* минимальный отступ сверху */
     background-color: #090a14;
 }
 
