@@ -244,7 +244,7 @@ body {
 /* Визуальный разделитель - КОНЕЦ СКРИНШОТОВ */
 .screenshots-end {
     position: relative;
-    margin: 60px auto 300px auto; /* ← ИЗМЕНЕНО: 30px → 300px (в 10 раз больше) */
+    margin: 60px auto 600px auto; /* ← УВЕЛИЧЕНО до 600px (было 300px) */
     padding: 50px 20px;
     max-width: 100%;
     text-align: center;
@@ -307,7 +307,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px 0 0 0;
+    padding: 0; /* убрал лишний отступ */
     background-color: #090a14;
 }
 
@@ -542,7 +542,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 50px auto 250px auto;
+        margin: 50px auto 500px auto; /* адаптивное увеличение */
         padding: 40px 15px;
     }
     
@@ -563,7 +563,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .extra-screenshot-container {
-        padding: 5px 0 0 0;
+        padding: 0;
     }
     
     .big-void {
@@ -665,7 +665,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 40px auto 200px auto;
+        margin: 40px auto 400px auto; /* адаптивное увеличение */
         padding: 30px 10px;
     }
     
@@ -682,7 +682,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .extra-screenshot-container {
-        padding: 5px 0 0 0;
+        padding: 0;
     }
     
     .big-void {
@@ -774,7 +774,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 35px auto 150px auto;
+        margin: 35px auto 300px auto;
         padding: 25px 8px;
     }
     
@@ -795,7 +795,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .extra-screenshot-container {
-        padding: 3px 0 0 0;
+        padding: 0;
     }
     
     .big-void {
@@ -883,7 +883,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 30px auto 120px auto;
+        margin: 30px auto 200px auto;
         padding: 20px 5px;
     }
     
@@ -903,7 +903,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .extra-screenshot-container {
-        padding: 3px 0 0 0;
+        padding: 0;
     }
     
     .big-void {
@@ -985,7 +985,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 25px auto 80px auto;
+        margin: 25px auto 150px auto;
         padding: 15px 3px;
     }
     
@@ -1005,7 +1005,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .extra-screenshot-container {
-        padding: 2px 0 0 0;
+        padding: 0;
     }
     
     .big-void {
@@ -1096,7 +1096,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 70px auto 350px auto;
+        margin: 70px auto 700px auto; /* ещё больше на больших экранах */
         padding: 60px 25px;
     }
     
@@ -1113,7 +1113,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .extra-screenshot-container {
-        padding: 10px 0 0 0;
+        padding: 0;
     }
     
     .big-void {
@@ -1146,7 +1146,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 80px auto 400px auto;
+        margin: 80px auto 800px auto;
         padding: 70px 30px;
     }
     
