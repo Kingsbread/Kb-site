@@ -244,7 +244,7 @@ body {
 /* Визуальный разделитель - КОНЕЦ СКРИНШОТОВ */
 .screenshots-end {
     position: relative;
-    margin: 60px auto 30px auto;
+    margin: 60px auto 300px auto;
     padding: 50px 20px;
     max-width: 100%;
     text-align: center;
