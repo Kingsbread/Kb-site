@@ -194,7 +194,7 @@ body {
 .screenshots-container {
     width: 100%;
     background-color: #090a14;
-    padding: 50px 18px 30px 18px; /* увеличен верхний отступ */
+    padding: 50px 18px 30px 18px;
     border-top: 6px solid #151d28;
     margin-bottom: 30px;
     position: relative;
@@ -244,7 +244,7 @@ body {
 /* Визуальный разделитель - КОНЕЦ СКРИНШОТОВ */
 .screenshots-end {
     position: relative;
-    margin: 60px auto 300px auto;
+    margin: 60px auto 300px auto; /* ← ИЗМЕНЕНО: 30px → 300px (в 10 раз больше) */
     padding: 50px 20px;
     max-width: 100%;
     text-align: center;
@@ -307,12 +307,12 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 100px 0 0 0; /* минимальный отступ сверху */
+    padding: 10px 0 0 0;
     background-color: #090a14;
 }
 
 .extra-screenshot {
-    width: 360px; /* такой же размер, как у основных скриншотов */
+    width: 360px;
     height: 201px;
     max-width: 100%;
     object-fit: cover;
@@ -542,7 +542,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 50px auto 25px auto;
+        margin: 50px auto 250px auto;
         padding: 40px 15px;
     }
     
@@ -665,7 +665,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 40px auto 20px auto;
+        margin: 40px auto 200px auto;
         padding: 30px 10px;
     }
     
@@ -774,7 +774,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 35px auto 15px auto;
+        margin: 35px auto 150px auto;
         padding: 25px 8px;
     }
     
@@ -883,7 +883,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 30px auto 12px auto;
+        margin: 30px auto 120px auto;
         padding: 20px 5px;
     }
     
@@ -985,7 +985,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 25px auto 10px auto;
+        margin: 25px auto 80px auto;
         padding: 15px 3px;
     }
     
@@ -1096,7 +1096,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 70px auto 40px auto;
+        margin: 70px auto 350px auto;
         padding: 60px 25px;
     }
     
@@ -1146,7 +1146,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
     
     .screenshots-end {
-        margin: 80px auto 50px auto;
+        margin: 80px auto 400px auto;
         padding: 70px 30px;
     }
     
